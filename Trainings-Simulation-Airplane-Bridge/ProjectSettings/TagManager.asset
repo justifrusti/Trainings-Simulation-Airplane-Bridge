@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - ForwardButton
+  - TurnHeadLeft
+  - TurnHeadRight
+  - MoveBridgeUp
+  - MoveBridgeDown
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,12 @@ using UnityEngine;
 public class BridgeController : MonoBehaviour
 {
     public Vector3 moveDirection;
-    
+
+    public bool turnHeadRight,turnHeadLeft, bridgeUp, bridgeDown;
+
+    public GameObject bridgeHead, turnPointBase, turnPointHead;
+
+    public Quaternion rotDyrection;
 
     public enum BridgeState {Forward, backward, left, right, up, down, stopped}
     public BridgeState bridgeState;
@@ -27,6 +32,23 @@ public class BridgeController : MonoBehaviour
                 transform.position += moveDirection * Time.deltaTime;
                 break;
         }
-
+        if(turnHeadRight == true)
+        {
+            bridgeHead.transform.Rotate(0, 0.05f, 0);
+        }
+        if(turnHeadLeft == true)
+        {
+            bridgeHead.transform.Rotate(0, -0.05f, 0);
+        }
+        if (bridgeUp == true)
+        {
+            turnPointBase.transform.Rotate(0.1f, 0, 0);
+            turnPointHead.transform.Rotate(-0.1f, 0, 0);
+        }
+        if (bridgeDown == true)
+        {
+            turnPointBase.transform.Rotate(-0.1f, 0, 0);
+            turnPointHead.transform.Rotate(0.1f, 0, 0);
+        }
     }
 }

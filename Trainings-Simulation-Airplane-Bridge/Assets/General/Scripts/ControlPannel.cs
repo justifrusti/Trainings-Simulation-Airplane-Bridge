@@ -19,13 +19,32 @@ public class ControlPannel : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "ForwardButton")
+        if (other.tag == "MoveBridgeUp")
         {
-            bridgeController.bridgeState = BridgeController.BridgeState.Forward;
+            bridgeController.bridgeUp = true;
+        }
+
+        if (other.tag == "MoveBridgeDown")
+        {
+            bridgeController.bridgeDown = true;
+        }
+
+        if (other.tag == "TurnHeadLeft")
+        {
+            bridgeController.turnHeadLeft = true;
+        }
+
+        if (other.tag == "TurnHeadRight")
+        {
+            bridgeController.turnHeadRight = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         bridgeController.bridgeState = BridgeController.BridgeState.stopped;
+        bridgeController.turnHeadRight = false;
+        bridgeController.turnHeadLeft = false;
+        bridgeController.bridgeUp = false;
+        bridgeController.bridgeDown = false;
     }
 }
