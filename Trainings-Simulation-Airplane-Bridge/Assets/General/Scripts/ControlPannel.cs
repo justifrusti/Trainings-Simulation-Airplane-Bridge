@@ -38,16 +38,18 @@ public class ControlPannel : MonoBehaviour
         {
             sideToSideTilt = Mathf.Abs(sideToSideTilt - 360);
             Debug.Log("Right" + sideToSideTilt);
-            bridgeController.bridgeState = BridgeController.BridgeState.right;
+            bridgeController.bridgeState = BridgeController.BridgeState.Right;
         }
         else if (sideToSideTilt > 5 && sideToSideTilt < 74)
         {
             Debug.Log("Left" + sideToSideTilt);
-            bridgeController.bridgeState = BridgeController.BridgeState.left;
+            bridgeController.bridgeState = BridgeController.BridgeState.Left;
         }
+        TempInput();
     }
 
-    private void OnTriggerStay(Collider other)
+
+   /* private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("PlayerHand"))
         {
@@ -55,12 +57,12 @@ public class ControlPannel : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "MoveBridgeUp")
         {
-            bridgeController.bridgeDown = true;
+            //bridgeController.bridgeDown = true;
+            bridgeController.bridgeState = BridgeController.BridgeState.Right;
         }
 
         if (other.tag == "MoveBridgeDown")
@@ -73,19 +75,66 @@ public class ControlPannel : MonoBehaviour
             bridgeController.turnHeadLeft = true;
         }
 
-        if (other.tag == "TurnHeadRight")
+        if (other.tag == "ForwardButton")
         {
-            bridgeController.turnHeadRight = true;
+            //bridgeController.turnHeadRight = true;
+            bridgeController.bridgeState = BridgeController.BridgeState.Forward;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        bridgeController.bridgeState = BridgeController.BridgeState.stopped;
+        bridgeController.bridgeState = BridgeController.BridgeState.Stopped;
         bridgeController.turnHeadRight = false;
         bridgeController.turnHeadLeft = false;
         bridgeController.bridgeUp = false;
         bridgeController.bridgeDown = false;
     }
+   */
+   public void TempInput()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            bridgeController.bridgeState = BridgeController.BridgeState.Forward;
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha1))
+        {
+            bridgeController.bridgeState = BridgeController.BridgeState.Stopped;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            bridgeController.bridgeState = BridgeController.BridgeState.Backward;
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha2))
+        {
+            bridgeController.bridgeState = BridgeController.BridgeState.Stopped;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            bridgeController.bridgeState = BridgeController.BridgeState.Left;
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            bridgeController.bridgeState = BridgeController.BridgeState.Stopped;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            bridgeController.bridgeState = BridgeController.BridgeState.Right;
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha4))
+        {
+            bridgeController.bridgeState = BridgeController.BridgeState.Stopped;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha5))
+        {
+
+        }
+    }
 }
 
 // bridgeController.bridgeState = BridgeController.BridgeState.right;
+//TurnHeadRight
