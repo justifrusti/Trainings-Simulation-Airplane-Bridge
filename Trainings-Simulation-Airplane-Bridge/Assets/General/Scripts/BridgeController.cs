@@ -8,9 +8,11 @@ public class BridgeController : MonoBehaviour
 
     public bool turnHeadRight,turnHeadLeft, bridgeUp, bridgeDown;
 
-    public GameObject bridgeHead, turnPointBase, turnPointHead;
+    public GameObject bridgeHead, turnPointBase, turnPointHead, tyreTurnPoint;
 
-    public Quaternion rotDyrection;
+    public Transform weels;
+
+    public float rotationY;
 
     public enum BridgeState {Forward, backward, left, right, up, down, stopped}
     public BridgeState bridgeState;
@@ -30,6 +32,12 @@ public class BridgeController : MonoBehaviour
                 break;
             case BridgeState.backward:
                 transform.position += moveDirection * Time.deltaTime;
+                break;
+            case BridgeState.left:
+                tyreTurnPoint.transform.Rotate(0, -0.05f, 0);
+                break;
+            case BridgeState.right:
+                tyreTurnPoint.transform.Rotate(0, 0.05f, 0);
                 break;
         }
         if(turnHeadRight == true)
