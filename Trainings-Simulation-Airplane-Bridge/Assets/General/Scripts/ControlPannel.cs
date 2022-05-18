@@ -27,10 +27,12 @@ public class ControlPannel : MonoBehaviour
         {
             forwardBackwardTilt = Mathf.Abs(forwardBackwardTilt - 360);
             Debug.Log("backward" + forwardBackwardTilt);
+            bridgeController.bridgeState = BridgeController.BridgeState.Backward;
         }
         else if (forwardBackwardTilt > 5 && forwardBackwardTilt < 74)
         {
             Debug.Log("forward" + forwardBackwardTilt);
+            bridgeController.bridgeState = BridgeController.BridgeState.Forward;
         }
 
         sideToSideTilt = topOfJoystick.rotation.eulerAngles.z;
