@@ -9,6 +9,7 @@ TagManager:
   - TurnHeadRight
   - MoveBridgeUp
   - MoveBridgeDown
+  - PlayerHand
   layers:
   - Default
   - TransparentFX

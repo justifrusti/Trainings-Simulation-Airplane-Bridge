@@ -22,6 +22,7 @@ public class ControlPannel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         forwardBackwardTilt = topOfJoystick.rotation.eulerAngles.x;
         if (forwardBackwardTilt < 355 && forwardBackwardTilt > 290)
         {
@@ -51,7 +52,7 @@ public class ControlPannel : MonoBehaviour
     }
 
 
-   /* private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("PlayerHand"))
         {
@@ -81,7 +82,7 @@ public class ControlPannel : MonoBehaviour
         {
             //bridgeController.turnHeadRight = true;
             bridgeController.bridgeState = BridgeController.BridgeState.Forward;
-        }
+        }*/
     }
     private void OnTriggerExit(Collider other)
     {
@@ -91,7 +92,7 @@ public class ControlPannel : MonoBehaviour
         bridgeController.bridgeUp = false;
         bridgeController.bridgeDown = false;
     }
-   */
+   
    public void TempInput()
     {
 
