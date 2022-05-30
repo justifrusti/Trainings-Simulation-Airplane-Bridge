@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BridgeController : MonoBehaviour
 {
+
     public Vector3 rotationSpeed;
 
     public Vector3 rotationPlus, rotationMin;
@@ -24,6 +25,7 @@ public class BridgeController : MonoBehaviour
     void Start()
     {
         bridgeState = BridgeState.Stopped;
+
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class BridgeController : MonoBehaviour
     {
         switch (bridgeState)
         {
+
             case BridgeState.Forward:
 
                 if(wheels.transform.localRotation == Quaternion.Euler(0, 90, 0))
@@ -78,5 +81,6 @@ public class BridgeController : MonoBehaviour
             turnPointBase.transform.Rotate(-0.1f, 0, 0);
             turnPointHead.transform.Rotate(0.1f, 0, 0);
         }
+
     }
 }
