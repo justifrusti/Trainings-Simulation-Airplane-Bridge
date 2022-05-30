@@ -48,11 +48,11 @@ public class ControlPannel : MonoBehaviour
             Debug.Log("Left" + sideToSideTilt);
             bridgeController.bridgeState = BridgeController.BridgeState.Left;
         }
-        TempInput();
+        TempInput();*/
     }
 
 
-    private void OnTriggerStay(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("PlayerHand"))
         {
@@ -60,17 +60,17 @@ public class ControlPannel : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.tag == "MoveBridgeUp")
         {
-            //bridgeController.bridgeDown = true;
             bridgeController.bridgeState = BridgeController.BridgeState.Right;
         }
 
         if (other.tag == "MoveBridgeDown")
         {
-            bridgeController.bridgeDown = true;
+            bridgeController.bridgeState = BridgeController.BridgeState.Left;
+            //bridgeController.bridgeDown = true;
         }
 
         if (other.tag == "TurnHeadLeft")
@@ -80,11 +80,11 @@ public class ControlPannel : MonoBehaviour
 
         if (other.tag == "ForwardButton")
         {
-            //bridgeController.turnHeadRight = true;
             bridgeController.bridgeState = BridgeController.BridgeState.Forward;
-        }*/
+        }
     }
-    private void OnTriggerExit(Collider other)
+
+    void OnTriggerExit(Collider other)
     {
         bridgeController.bridgeState = BridgeController.BridgeState.Stopped;
         bridgeController.turnHeadRight = false;
@@ -93,7 +93,7 @@ public class ControlPannel : MonoBehaviour
         bridgeController.bridgeDown = false;
     }
    
-   public void TempInput()
+    void TempInput()
     {
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
