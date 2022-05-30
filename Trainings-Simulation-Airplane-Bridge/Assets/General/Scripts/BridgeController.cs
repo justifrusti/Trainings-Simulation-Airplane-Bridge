@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class BridgeController : MonoBehaviour
 {
-    public Vector3 moveSpeed;
+
+    public Vector3 rotationSpeed;
+
+    public Vector3 rotationPlus, rotationMin;
+
+    public bool turnHeadRight,turnHeadLeft, bridgeUp, bridgeDown;
+
+    public GameObject bridgeHead, turnPointBase, turnPointHead, tireTurnPoint;
+
+    public GameObject wheels;
+    public Transform wheelTransform;
     
 
-    public enum bridgestate { Forward, backward, left, right, up, down, stopped }
-    public bridgestate bridgeState;
+    public float moveSpeed;
+
+    public enum BridgeState {Forward, Backward, Left, Right, Up, Down, Stopped, Rotate}
+    public BridgeState bridgeState;
     // Start is called before the first frame update
     void Start()
     {
-        bridgeState = bridgestate.stopped;
+        bridgeState = BridgeState.Stopped;
+
     }
 
     // Update is called once per frame
@@ -20,15 +33,54 @@ public class BridgeController : MonoBehaviour
     {
         switch (bridgeState)
         {
-            case bridgestate.Forward:
-                transform.position += moveSpeed * Time.deltaTime;
 
+            case BridgeState.Forward:
+
+                if(wheels.transform.localRotation == Quaternion.Euler(0, 90, 0))
+                {
+                    rotationSpeed = rotationPlus * Time.deltaTime;
+                    turnPointBase.transform.Rotate(rotationSpeed);
+                }else
+                {
+                    transform.localPosition += wheelTransform.forward * Time.deltaTime * moveSpeed;
+                }
+                break;
+            case BridgeState.Backward:
+                if (wheels.transform.localRotation == Quaternion.Euler(0, 90, 0))
+                {
+                    rotationSpeed = rotationMin * Time.deltaTime;
+                    turnPointBase.transform.Rotate(rotationSpeed);
+                }
+                else
+                {
+                    transform.localPosition += -wheelTransform.forward * Time.deltaTime * moveSpeed;
+                }
+                break;
+            case BridgeState.Left:
+                wheels.transform.Rotate(0, -0.05f, 0);
+                break;
+            case BridgeState.Right:
+                wheels.transform.Rotate(0, 0.05f, 0);
                 break;
         }
+        if(turnHeadRight == true)
+        {
+            bridgeHead.transform.Rotate(0, 0.05f, 0);
+        }
+        if(turnHeadLeft == true)
+        {
+            bridgeHead.transform.Rotate(0, -0.05f, 0);
+        }
+        if (bridgeUp == true)
+        {
+            turnPointBase.transform.Rotate(0.1f, 0, 0);
+            turnPointHead.transform.Rotate(-0.1f, 0, 0);
+        }
+        if (bridgeDown == true)
+        {
+            turnPointBase.transform.Rotate(-0.1f, 0, 0);
+            turnPointHead.transform.Rotate(0.1f, 0, 0);
+        }
 
-    }
-    public void Movebridgeforward()
-    {
-        bridgeState = bridgestate.Forward;
     }
 }
