@@ -52,12 +52,12 @@ public class Unit : MonoBehaviour
 
         if(hjonk.isPlaying && !playedHjonk)
         {
-            Debug.Log("RUN BITCH RUNNNNNN.......!!!");
-
             playedHjonk = true;
             StartCoroutine(ResetHjonk());
 
             target = hjonkTargets[Random.Range(0, hjonkTargets.Length)];
+            
+            Debug.Log("Moving towards escape target: " + target);
         }
     }
 
