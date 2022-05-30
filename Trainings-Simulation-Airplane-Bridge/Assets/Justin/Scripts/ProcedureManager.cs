@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class ProcedureManager : MonoBehaviour
 {
+    [Header("Honk Components")]
+    public AudioSource hjonk;
+
     public enum ProcedureState { ReleasingBridge, StartUp, OpenShutters, Moving, WheelPosition, PositioningBridge }
-    public enum StartupState { TestingLights, StartingUp}
+    public enum StartupState { TestingLights, StartingUp }
     [Header("Procedure State")]
     public ProcedureState procedureState;
-    public StartupState startupState;   
+    public StartupState startupState;
 
     //Header For Releasing Components;
 
@@ -26,13 +29,13 @@ public class ProcedureManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch(procedureState)
+        switch (procedureState)
         {
             case ProcedureState.ReleasingBridge:
                 //Insert Visual Elements Code here;
@@ -41,24 +44,25 @@ public class ProcedureManager : MonoBehaviour
                 break;
 
             case ProcedureState.StartUp:
-                switch(startupState)
+                switch (startupState)
                 {
                     case StartupState.TestingLights:
-                        if(!testedLight)
+                        if (!testedLight)
                         {
                             Debug.Log("Lights not Tested");
-                        }else if(testedLight)
+                        }
+                        else if (testedLight)
                         {
                             startupState = StartupState.StartingUp;
                         }
                         break;
 
                     case StartupState.StartingUp:
-                        if(!startIsActive)
+                        if (!startIsActive)
                         {
                             Debug.Log("Hand button not Pressed");
                         }
-                        else if(startIsActive)
+                        else if (startIsActive)
                         {
                             procedureState = ProcedureState.OpenShutters;
                         }
@@ -87,6 +91,11 @@ public class ProcedureManager : MonoBehaviour
 
     public void PressedStartupButton()
     {
-        startIsActive = true;  
+        startIsActive = true;
+    }
+
+    public void PlayHjonk()
+    {
+        hjonk.Play();
     }
 }

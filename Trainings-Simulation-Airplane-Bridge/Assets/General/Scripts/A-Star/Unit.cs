@@ -20,9 +20,14 @@ public class Unit : MonoBehaviour
 
     Paths path;
 
+    public float minWaitTime, maxWaitTime;
+
     public AudioSource hjonk;
 
-    public bool playedHjonk;
+    public bool playedHjonk, arrivedAtTarget;
+
+    [Header("Debug")]
+    public string unitName;
 
     private void Start()
     {
@@ -38,9 +43,11 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, target.position) < stoppingDst)
+        if (Vector3.Distance(transform.position, target.position) < stoppingDst && !arrivedAtTarget)
         {
-            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+            arrivedAtTarget = true;
+
+            StartCoroutine(NextPos());
         }
 
         if(hjonk.isPlaying && !playedHjonk)
@@ -141,6 +148,18 @@ public class Unit : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         playedHjonk = false;
+    }
+
+    IEnumerator NextPos()
+    {
+        float timeToWait = Random.Range(minWaitTime, maxWaitTime);
+        print("Time till next move: "+ timeToWait + " for Unit: " + unitName);
+
+        yield return new WaitForSeconds(timeToWait);
+
+        target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+
+        arrivedAtTarget = false;
     }
 
     public void OnDrawGizmos()
