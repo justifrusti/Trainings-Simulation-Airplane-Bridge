@@ -35,10 +35,7 @@ public class Unit : MonoBehaviour
 
         StartCoroutine(UpdatePath());
 
-        if(target == null)
-        {
-            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
-        }
+        CalculateDst();
     }
 
     private void Update()
@@ -52,6 +49,8 @@ public class Unit : MonoBehaviour
 
         if(hjonk.isPlaying && !playedHjonk)
         {
+            CalculateHjonkDst();
+
             playedHjonk = true;
             StartCoroutine(ResetHjonk());
 
@@ -157,9 +156,110 @@ public class Unit : MonoBehaviour
 
         yield return new WaitForSeconds(timeToWait);
 
-        target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+        CalculateDst();
 
         arrivedAtTarget = false;
+    }
+
+    public void CalculateDst()
+    {
+        List<float> dstToTargets = new List<float>();
+
+        for (int i = 0; i < possibleTargets.Length; i++)
+        {
+            float dstBetweenTarget = Vector3.Distance(possibleTargets[i].position, transform.position);
+
+            dstToTargets.Add(dstBetweenTarget);
+        }
+
+        for (int i = 0; i < dstToTargets.Count; i++)
+        {
+            float previousDst = dstToTargets[i] - 1;
+
+            if(dstToTargets[i] < previousDst)
+            {
+                target = possibleTargets[i];
+            }else if(i != 0)
+            {
+                target = possibleTargets[i - 1];
+            }else if(i == 0)
+            {
+                target = possibleTargets[0];
+            }
+        }
+
+        foreach (Unit people in GameObject.FindObjectsOfType<Unit>())
+        {
+            List<Unit> units = new List<Unit>();
+
+            if (!units.Contains(people))
+            {
+                units.Add(people);
+            }
+
+            for (int i = 0; i < units.Count; i++)
+            {
+                if(units[i].target == target && i <= dstToTargets.Count)
+                {
+                    target = possibleTargets[i];
+                }else
+                {
+                    target = possibleTargets[0];
+                }
+            }
+        }
+    }
+
+    public void CalculateHjonkDst()
+    {
+        List<float> dstToTargets = new List<float>();
+
+        for (int i = 0; i < hjonkTargets.Length; i++)
+        {
+            float dstBetweenTarget = Vector3.Distance(hjonkTargets[i].position, transform.position);
+
+            dstToTargets.Add(dstBetweenTarget);
+        }
+
+        for (int i = 0; i < dstToTargets.Count; i++)
+        {
+            float previousDst = dstToTargets[i] - 1;
+
+            if (dstToTargets[i] < previousDst)
+            {
+                target = hjonkTargets[i];
+            }
+            else if (i != 0)
+            {
+                target = hjonkTargets[i - 1];
+            }
+            else if (i == 0)
+            {
+                target = hjonkTargets[0];
+            }
+        }
+
+        foreach (Unit people in GameObject.FindObjectsOfType<Unit>())
+        {
+            List<Unit> units = new List<Unit>();
+
+            if (!units.Contains(people))
+            {
+                units.Add(people);
+            }
+
+            for (int i = 0; i < units.Count; i++)
+            {
+                if (units[i].target == target && i <= dstToTargets.Count)
+                {
+                    target = hjonkTargets[i];
+                }
+                else
+                {
+                    target = hjonkTargets[0];
+                }
+            }
+        }
     }
 
     public void OnDrawGizmos()
