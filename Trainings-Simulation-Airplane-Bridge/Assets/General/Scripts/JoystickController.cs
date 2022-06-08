@@ -4,7 +4,7 @@ using System;
 using Valve.VR;
 using UnityEngine;
 
-public class TempJoystickTest : MonoBehaviour
+public class JoystickController : MonoBehaviour
 {
     public Transform topOfJoystick;
 
@@ -21,13 +21,14 @@ public class TempJoystickTest : MonoBehaviour
     private float rotSpeed = 3f;
 
     public SteamVR_Action_Single squezeAction;
-    // Start is called before the first frame update
+
+    public Quaternion baseRotation;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         forwardBackwardTilt = topOfJoystick.rotation.eulerAngles.x;
@@ -51,28 +52,18 @@ public class TempJoystickTest : MonoBehaviour
         {
             //bridgeController.bridgeState = BridgeController.BridgeState.Left;
         }
-        //lockedRotation();
-        
-        if (SteamVR_Actions._default.GrabGrip.GetStateDown(SteamVR_Input_Sources.Any))
-        {
-            print("test");
-        }
+        //lockedRotation(); 
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("PlayerHand"))
         {
-            if (SteamVR_Actions._default.GrabPinch.GetState(SteamVR_Input_Sources.Any))
+            if (SteamVR_Actions._default.GrabPinch.GetState(SteamVR_Input_Sources.Any) && SteamVR_Actions._default.GrabGrip.GetState(SteamVR_Input_Sources.Any))
             {
-                if (SteamVR_Actions._default.GrabGrip.GetState(SteamVR_Input_Sources.Any))
-                {
-                    transform.LookAt(other.transform.position, transform.up);
-                }
+                transform.LookAt(other.transform.position, transform.up);
             }
         }
-        
-        
     }
     
     void lockedRotation()

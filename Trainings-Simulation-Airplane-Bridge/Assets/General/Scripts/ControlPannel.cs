@@ -22,33 +22,8 @@ public class ControlPannel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        forwardBackwardTilt = topOfJoystick.rotation.eulerAngles.x;
-        if (forwardBackwardTilt < 355 && forwardBackwardTilt > 290)
-        {
-            forwardBackwardTilt = Mathf.Abs(forwardBackwardTilt - 360);
-            Debug.Log("backward" + forwardBackwardTilt);
-            bridgeController.bridgeState = BridgeController.BridgeState.Backward;
-        }
-        else if (forwardBackwardTilt > 5 && forwardBackwardTilt < 74)
-        {
-            Debug.Log("forward" + forwardBackwardTilt);
-            bridgeController.bridgeState = BridgeController.BridgeState.Forward;
-        }
-
-        sideToSideTilt = topOfJoystick.rotation.eulerAngles.z;
-        if (forwardBackwardTilt < 355 && forwardBackwardTilt > 290)
-        {
-            sideToSideTilt = Mathf.Abs(sideToSideTilt - 360);
-            Debug.Log("Right" + sideToSideTilt);
-            bridgeController.bridgeState = BridgeController.BridgeState.Right;
-        }
-        else if (sideToSideTilt > 5 && sideToSideTilt < 74)
-        {
-            Debug.Log("Left" + sideToSideTilt);
-            bridgeController.bridgeState = BridgeController.BridgeState.Left;
-        }
-        TempInput();*/
+        
+        TempInput();
     }
 
 

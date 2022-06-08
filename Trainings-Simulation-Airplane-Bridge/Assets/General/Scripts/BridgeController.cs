@@ -25,7 +25,6 @@ public class BridgeController : MonoBehaviour
     void Start()
     {
         bridgeState = BridgeState.Stopped;
-
     }
 
     // Update is called once per frame
@@ -33,7 +32,6 @@ public class BridgeController : MonoBehaviour
     {
         switch (bridgeState)
         {
-
             case BridgeState.Forward:
 
                 if(wheels.transform.localRotation == Quaternion.Euler(0, 90, 0))
@@ -45,42 +43,45 @@ public class BridgeController : MonoBehaviour
                     transform.localPosition += wheelTransform.forward * Time.deltaTime * moveSpeed;
                 }
                 break;
+
             case BridgeState.Backward:
                 if (wheels.transform.localRotation == Quaternion.Euler(0, 90, 0))
                 {
                     rotationSpeed = rotationMin * Time.deltaTime;
                     turnPointBase.transform.Rotate(rotationSpeed);
-                }
-                else
+                }else
                 {
                     transform.localPosition += -wheelTransform.forward * Time.deltaTime * moveSpeed;
                 }
                 break;
+
             case BridgeState.Left:
                 wheels.transform.Rotate(0, -0.05f, 0);
                 break;
+
             case BridgeState.Right:
                 wheels.transform.Rotate(0, 0.05f, 0);
                 break;
         }
+
         if(turnHeadRight == true)
         {
             bridgeHead.transform.Rotate(0, 0.05f, 0);
         }
+
         if(turnHeadLeft == true)
         {
             bridgeHead.transform.Rotate(0, -0.05f, 0);
         }
+
         if (bridgeUp == true)
         {
-            turnPointBase.transform.Rotate(0.1f, 0, 0);
-            turnPointHead.transform.Rotate(-0.1f, 0, 0);
-        }
-        if (bridgeDown == true)
-        {
-            turnPointBase.transform.Rotate(-0.1f, 0, 0);
-            turnPointHead.transform.Rotate(0.1f, 0, 0);
+            turnPointBase.transform.Rotate(0.001f, 0, 0);
         }
 
+        if (bridgeDown == true)
+        {
+            turnPointBase.transform.Rotate(-0.001f, 0, 0);
+        }
     }
 }

@@ -659,8 +659,8 @@ GameObject:
   m_Component:
   - component: {fileID: 745595288}
   - component: {fileID: 745595286}
-  - component: {fileID: 745595287}
   - component: {fileID: 745595289}
+  - component: {fileID: 745595287}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -693,17 +693,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 745595285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5b5d4b1b6babf846b5a89953f38bf76, type: 3}
+  m_Script: {fileID: 11500000, guid: e48c8871f6ff8d14d94556667f582676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   topOfJoystick: {fileID: 1242183869}
   forwardBackwardTilt: 0
   sideToSideTilt: 0
-  minRotX: -45
-  maxRotX: 45
+  minRotX: 0
+  maxRotX: 0
   squezeAction:
-    actionPath: 
+    actionPath: /actions/default/in/Squeeze
     needsReinit: 0
+  baseRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &745595288
 Transform:
   m_ObjectHideFlags: 0
