@@ -14,19 +14,18 @@ public class JoystickController : MonoBehaviour
     private float sideToSideTilt = 0;
 
     private float rot = 0f;
-    private float rotX;
-    public float minRotX;
-    public float maxRotX;
-    
-    private float rotSpeed = 3f;
+    private float rotY, rotX;
+    public float minRotY, maxRotY, minRotX, maxRotX;
 
     public SteamVR_Action_Single squezeAction;
 
-    public Quaternion baseRotation;
+    private Quaternion baseRotation;
+    public float rotationResetSpeed = 1.0f;
 
     void Start()
     {
-        
+        rotX = transform.localRotation.x;
+        baseRotation = transform.rotation;
     }
 
     void Update()
@@ -52,7 +51,7 @@ public class JoystickController : MonoBehaviour
         {
             //bridgeController.bridgeState = BridgeController.BridgeState.Left;
         }
-        //lockedRotation(); 
+        lockedRotation(); 
     }
 
     private void OnTriggerStay(Collider other)
@@ -65,12 +64,15 @@ public class JoystickController : MonoBehaviour
             }
         }
     }
-    
+    private void OnTriggerExit(Collider other)
+    {
+        transform.rotation = Quaternion.Slerp(transform.rotation, baseRotation, Time.time * rotationResetSpeed);
+    }
+
     void lockedRotation()
     {
-        rotX += Input.GetAxis("Mouse X");
         rotX = Mathf.Clamp(rotX, minRotX, maxRotX);
-        //rotY += Input.GetAxis("Horizontal" * Time.deltaTime;
-        //transform.rotation = Quaternion.Euler(rotX, rotationY, 0);
+        rotY = Mathf.Clamp(rotY, minRotY, maxRotY);
+
     }
 }
