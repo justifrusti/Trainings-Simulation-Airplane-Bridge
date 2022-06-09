@@ -26,15 +26,6 @@ public class ControlPannel : MonoBehaviour
         TempInput();
     }
 
-
-    void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("PlayerHand"))
-        {
-            transform.LookAt(other.transform.position, transform.up);
-        }
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "MoveBridgeUp")
