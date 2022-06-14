@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class JoystickController : MonoBehaviour
 {
+    public BridgeController bridgeController;
+
     public Transform topOfJoystick;
 
     [SerializeField]
@@ -16,11 +18,11 @@ public class JoystickController : MonoBehaviour
     private float rot = 0f;
     private float rotY, rotX;
     public float minRotY, maxRotY, minRotX, maxRotX;
+    public float rotationResetSpeed = 1.0f;
 
     public SteamVR_Action_Single squezeAction;
 
     private Quaternion baseRotation;
-    public float rotationResetSpeed = 1.0f;
 
     void Start()
     {
@@ -34,22 +36,22 @@ public class JoystickController : MonoBehaviour
         if (forwardBackwardTilt < 355 && forwardBackwardTilt > 290)
         {
             forwardBackwardTilt = Mathf.Abs(forwardBackwardTilt - 360);
-            //bridgeController.bridgeState = BridgeController.BridgeState.Backward;
+            bridgeController.bridgeState = BridgeController.BridgeState.Backward;
         }
         else if (forwardBackwardTilt > 5 && forwardBackwardTilt < 74)
         {
-            //bridgeController.bridgeState = BridgeController.BridgeState.Forward;
+            bridgeController.bridgeState = BridgeController.BridgeState.Forward;
         }
 
         sideToSideTilt = topOfJoystick.rotation.eulerAngles.z;
         if (forwardBackwardTilt < 355 && forwardBackwardTilt > 290)
         {
             sideToSideTilt = Mathf.Abs(sideToSideTilt - 360);
-            //bridgeController.bridgeState = BridgeController.BridgeState.Right;
+            bridgeController.bridgeState = BridgeController.BridgeState.Right;
         }
         else if (sideToSideTilt > 5 && sideToSideTilt < 74)
         {
-            //bridgeController.bridgeState = BridgeController.BridgeState.Left;
+            bridgeController.bridgeState = BridgeController.BridgeState.Left;
         }
         lockedRotation(); 
     }

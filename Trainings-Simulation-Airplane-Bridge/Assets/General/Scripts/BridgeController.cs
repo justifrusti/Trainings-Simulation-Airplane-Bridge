@@ -11,7 +11,7 @@ public class BridgeController : MonoBehaviour
 
     public bool turnHeadRight,turnHeadLeft, bridgeUp, bridgeDown;
 
-    public GameObject bridgeHead, turnPointBase, turnPointHead, tireTurnPoint;
+    public GameObject bridgeHead, turnPointBase;
 
     public GameObject wheels;
     public Transform wheelTransform;
@@ -36,8 +36,8 @@ public class BridgeController : MonoBehaviour
 
                 if(wheels.transform.localRotation == Quaternion.Euler(0, 90, 0))
                 {
-                    rotationSpeed = rotationPlus * Time.deltaTime;
-                    turnPointBase.transform.Rotate(rotationSpeed);
+                    rotationPlus = rotationSpeed * Time.deltaTime;
+                    turnPointBase.transform.Rotate(rotationPlus);
                 }else
                 {
                     transform.localPosition += wheelTransform.forward * Time.deltaTime * moveSpeed;
@@ -45,10 +45,10 @@ public class BridgeController : MonoBehaviour
                 break;
 
             case BridgeState.Backward:
-                if (wheels.transform.localRotation == Quaternion.Euler(0, 90, 0))
+                if (wheels.transform.localRotation == Quaternion.Euler(0, -90, 0))
                 {
-                    rotationSpeed = rotationMin * Time.deltaTime;
-                    turnPointBase.transform.Rotate(rotationSpeed);
+                     rotationPlus = rotationSpeed * Time.deltaTime;
+                    turnPointBase.transform.Rotate(rotationPlus);
                 }else
                 {
                     transform.localPosition += -wheelTransform.forward * Time.deltaTime * moveSpeed;

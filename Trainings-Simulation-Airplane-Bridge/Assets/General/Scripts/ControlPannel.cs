@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class ControlPannel : MonoBehaviour
 {
-    
     public BridgeController bridgeController;
 
-    public Transform topOfJoystick;
+    Vector3 originalLocation;
 
-    [SerializeField]
-    private float forwardBackwardTilt = 0;
-    [SerializeField]
-    private float sideToSideTilt = 0;
+    public float maxTravel = 0.1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,20 +20,20 @@ public class ControlPannel : MonoBehaviour
     void Update()
     {
         
-        TempInput();
     }
 
     void OnTriggerEnter(Collider other)
     {
+
+        originalLocation = other.transform.position;
         if (other.tag == "MoveBridgeUp")
         {
-            bridgeController.bridgeState = BridgeController.BridgeState.Right;
+            bridgeController.bridgeUp = true;
         }
 
         if (other.tag == "MoveBridgeDown")
         {
-            bridgeController.bridgeState = BridgeController.BridgeState.Left;
-            //bridgeController.bridgeDown = true;
+            bridgeController.bridgeDown = true;
         }
 
         if (other.tag == "TurnHeadLeft")
@@ -44,9 +41,9 @@ public class ControlPannel : MonoBehaviour
             bridgeController.turnHeadLeft = true;
         }
 
-        if (other.tag == "ForwardButton")
+        if (other.tag == "TunrHeadRight")
         {
-            bridgeController.bridgeState = BridgeController.BridgeState.Forward;
+            bridgeController.turnHeadRight = true;              
         }
     }
 
@@ -57,53 +54,7 @@ public class ControlPannel : MonoBehaviour
         bridgeController.turnHeadLeft = false;
         bridgeController.bridgeUp = false;
         bridgeController.bridgeDown = false;
-    }
-   
-    void TempInput()
-    {
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            bridgeController.bridgeState = BridgeController.BridgeState.Forward;
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha1))
-        {
-            bridgeController.bridgeState = BridgeController.BridgeState.Stopped;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            bridgeController.bridgeState = BridgeController.BridgeState.Backward;
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha2))
-        {
-            bridgeController.bridgeState = BridgeController.BridgeState.Stopped;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            bridgeController.bridgeState = BridgeController.BridgeState.Left;
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha3))
-        {
-            bridgeController.bridgeState = BridgeController.BridgeState.Stopped;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            bridgeController.bridgeState = BridgeController.BridgeState.Right;
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha4))
-        {
-            bridgeController.bridgeState = BridgeController.BridgeState.Stopped;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-
-        }
-        if (Input.GetKeyUp(KeyCode.Alpha5))
-        {
-
-        }
+        Vector3.MoveTowards(other.transform.position, originalLocation, maxTravel);
     }
 }
-
-// bridgeController.bridgeState = BridgeController.BridgeState.right;
-//TurnHeadRight
