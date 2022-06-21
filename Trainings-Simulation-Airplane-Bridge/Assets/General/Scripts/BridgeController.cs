@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class BridgeController : MonoBehaviour
 {
+    [Header("movementValues")]
+    public float moveSpeed;
+    public Vector3 rotationPlus, rotationMin, rotationSpeed;
 
-    public Vector3 rotationSpeed;
+    [Header("movementBool")]
+    public bool turnHeadRight;
+    public bool turnHeadLeft, bridgeUp, bridgeDown;
 
-    public Vector3 rotationPlus, rotationMin;
+    [Header("BridgeTurnPoints")]
+    public GameObject bridgeHead;
+    public GameObject turnPointBase;
 
-    public bool turnHeadRight,turnHeadLeft, bridgeUp, bridgeDown;
-
-    public GameObject bridgeHead, turnPointBase;
-
+    [Header("Wheels")]
     public GameObject wheels;
     public Transform wheelTransform;
-    
-
-    public float moveSpeed;
+    public GameObject WheelElevator;
 
     public enum BridgeState {Forward, Backward, Left, Right, Up, Down, Stopped, Rotate}
     public BridgeState bridgeState;
-    // Start is called before the first frame update
     void Start()
     {
         bridgeState = BridgeState.Stopped;
     }
 
-    // Update is called once per frame
     void Update()
     {
         switch (bridgeState)
@@ -82,6 +82,6 @@ public class BridgeController : MonoBehaviour
         if (bridgeDown == true)
         {
             turnPointBase.transform.Rotate(-0.001f, 0, 0);
-        }
+        } 
     }
 }

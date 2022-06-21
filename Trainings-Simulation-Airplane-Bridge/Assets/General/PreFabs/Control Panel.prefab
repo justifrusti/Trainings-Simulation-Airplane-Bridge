@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 3384098572537105277}
   m_Layer: 0
   m_Name: Button_Brug_Neer
-  m_TagString: Untagged
+  m_TagString: MoveBridgeDown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 6755844275045913249}
   m_Layer: 0
   m_Name: Button_Huif_Neer
-  m_TagString: Untagged
+  m_TagString: HuifDownButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1445,7 +1445,7 @@ GameObject:
   - component: {fileID: 4731708201162475880}
   m_Layer: 0
   m_Name: Button_LampTest
-  m_TagString: Untagged
+  m_TagString: LampTest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1878,7 +1878,7 @@ GameObject:
   - component: {fileID: 4876294025113370982}
   m_Layer: 0
   m_Name: Button_Brug_Op
-  m_TagString: Untagged
+  m_TagString: MoveBridgeUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2287,7 +2287,7 @@ GameObject:
   - component: {fileID: 8313822983634898914}
   m_Layer: 0
   m_Name: Button_Claxon
-  m_TagString: Untagged
+  m_TagString: Claxon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2369,7 +2369,7 @@ GameObject:
   - component: {fileID: 5929053575336092766}
   m_Layer: 0
   m_Name: Button_Hand
-  m_TagString: Untagged
+  m_TagString: HandButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2451,7 +2451,7 @@ GameObject:
   - component: {fileID: 5845482531815012220}
   m_Layer: 0
   m_Name: Button_AutoTrim
-  m_TagString: Untagged
+  m_TagString: AutoTrimButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3017,7 +3017,7 @@ GameObject:
   - component: {fileID: 1498315971548770541}
   m_Layer: 0
   m_Name: Button_Huif_Op
-  m_TagString: Untagged
+  m_TagString: HuifUpButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3233,7 +3233,7 @@ GameObject:
   - component: {fileID: 1751541469983787148}
   m_Layer: 0
   m_Name: Button_Kop_Links
-  m_TagString: Untagged
+  m_TagString: TurnHeadLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3997,7 +3997,7 @@ GameObject:
   - component: {fileID: 5845653055657537679}
   m_Layer: 0
   m_Name: Button_Rolluik_Neer
-  m_TagString: Untagged
+  m_TagString: RolluikDownButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4391,7 +4391,7 @@ GameObject:
   - component: {fileID: 4694187973465058531}
   m_Layer: 0
   m_Name: Button_Kop_Rechts
-  m_TagString: Untagged
+  m_TagString: TurnHeadRight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4607,7 +4607,7 @@ GameObject:
   - component: {fileID: 8020474863852859589}
   m_Layer: 0
   m_Name: Button_Rolluik_Op
-  m_TagString: Untagged
+  m_TagString: RolluikUpButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

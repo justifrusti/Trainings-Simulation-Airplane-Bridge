@@ -4,28 +4,12 @@ using UnityEngine;
 
 public class ControlPannel : MonoBehaviour
 {
+    public ProcedureManager procedureManager;
+
     public BridgeController bridgeController;
-
-    Vector3 originalLocation;
-
-    public float maxTravel = 0.1f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnTriggerEnter(Collider other)
     {
-
-        originalLocation = other.transform.position;
         if (other.tag == "MoveBridgeUp")
         {
             bridgeController.bridgeUp = true;
@@ -45,6 +29,36 @@ public class ControlPannel : MonoBehaviour
         {
             bridgeController.turnHeadRight = true;              
         }
+
+        if(other.tag == "HandButton")
+        {
+            procedureManager.startIsActive = true;
+        }
+
+        if(other.tag == "LampTest")
+        {
+            procedureManager.testedLight = true;
+        }
+
+        if(other.tag == "Claxon")
+        {
+            procedureManager.PlayHjonk();
+        }
+
+        if(other.tag == "AutoTrimButton")
+        {
+            //do something / not implemented
+        }
+
+        if (other.tag == "HuifUpButton")
+        {
+            //do something / not implemented
+        }
+
+        if (other.tag == "HuifDownButton")
+        {
+            //do something / not implemented
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -54,7 +68,5 @@ public class ControlPannel : MonoBehaviour
         bridgeController.turnHeadLeft = false;
         bridgeController.bridgeUp = false;
         bridgeController.bridgeDown = false;
-
-        Vector3.MoveTowards(other.transform.position, originalLocation, maxTravel);
     }
 }
