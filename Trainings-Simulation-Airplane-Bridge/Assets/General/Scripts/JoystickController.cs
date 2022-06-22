@@ -40,6 +40,7 @@ public class JoystickController : MonoBehaviour
         }
         else if (forwardBackwardTilt > 5 && forwardBackwardTilt < 74)
         {
+            print("test");
             bridgeController.bridgeState = BridgeController.BridgeState.Forward;
         }
 
