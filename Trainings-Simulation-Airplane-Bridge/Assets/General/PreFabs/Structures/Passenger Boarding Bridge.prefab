@@ -192,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4365812054474649423}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.059577942, z: -17.459766}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3498077226031322327}
@@ -444,7 +444,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8023267271248403062}
-  - {fileID: 8157415426816050034}
+  - {fileID: 6972373426307322059}
   m_Father: {fileID: 9153646575654416800}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -588,6 +588,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1535484147905873955}
     m_Modifications:
+    - target: {fileID: 2913810999693027454, guid: b962822da5c5334468520307fc7939b1, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3662008872423793021, guid: b962822da5c5334468520307fc7939b1, type: 3}
       propertyPath: m_Name
       value: Control Panel
@@ -650,8 +654,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b962822da5c5334468520307fc7939b1, type: 3}
---- !u!4 &8157415426816050034 stripped
+--- !u!4 &6972373426307322059 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4150560764447849415, guid: b962822da5c5334468520307fc7939b1, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2913810999693027454, guid: b962822da5c5334468520307fc7939b1, type: 3}
   m_PrefabInstance: {fileID: 5236902527303153845}
   m_PrefabAsset: {fileID: 0}
