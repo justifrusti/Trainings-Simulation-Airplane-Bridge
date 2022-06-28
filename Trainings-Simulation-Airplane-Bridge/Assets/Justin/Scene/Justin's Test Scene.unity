@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 181152824}
   m_Layer: 6
   m_Name: TestNPC
-  m_TagString: Untagged
+  m_TagString: Bob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +216,14 @@ MonoBehaviour:
   speed: 5
   turnDst: 5
   turnSpeed: 3
-  stoppingDst: 10
+  stoppingDst: 2
+  maxItterations: 10
+  foundValidTarget: 0
+  waitingAtTarget: 0
+  bobs:
+  - {fileID: 1673530234}
+  - {fileID: 207570460}
+  - {fileID: 1548296727}
   minWaitTime: 1
   maxWaitTime: 5
   hjonk: {fileID: 636729050}
@@ -318,7 +325,7 @@ GameObject:
   - component: {fileID: 207570460}
   m_Layer: 6
   m_Name: TestNPC (2)
-  m_TagString: Untagged
+  m_TagString: Bob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -365,7 +372,14 @@ MonoBehaviour:
   speed: 5
   turnDst: 5
   turnSpeed: 3
-  stoppingDst: 10
+  stoppingDst: 2
+  maxItterations: 10
+  foundValidTarget: 0
+  waitingAtTarget: 0
+  bobs:
+  - {fileID: 181152824}
+  - {fileID: 1673530234}
+  - {fileID: 1548296727}
   minWaitTime: 1
   maxWaitTime: 3
   hjonk: {fileID: 636729050}
@@ -1494,7 +1508,7 @@ GameObject:
   - component: {fileID: 1548296727}
   m_Layer: 6
   m_Name: TestNPC (3)
-  m_TagString: Untagged
+  m_TagString: Bob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1541,7 +1555,14 @@ MonoBehaviour:
   speed: 5
   turnDst: 5
   turnSpeed: 3
-  stoppingDst: 10
+  stoppingDst: 2
+  maxItterations: 10
+  foundValidTarget: 0
+  waitingAtTarget: 0
+  bobs:
+  - {fileID: 181152824}
+  - {fileID: 1673530234}
+  - {fileID: 207570460}
   minWaitTime: 1
   maxWaitTime: 3
   hjonk: {fileID: 636729050}
@@ -1643,7 +1664,7 @@ GameObject:
   - component: {fileID: 1673530234}
   m_Layer: 6
   m_Name: TestNPC (1)
-  m_TagString: Untagged
+  m_TagString: Bob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1690,7 +1711,14 @@ MonoBehaviour:
   speed: 5
   turnDst: 5
   turnSpeed: 3
-  stoppingDst: 10
+  stoppingDst: 2
+  maxItterations: 10
+  foundValidTarget: 0
+  waitingAtTarget: 0
+  bobs:
+  - {fileID: 181152824}
+  - {fileID: 207570460}
+  - {fileID: 1548296727}
   minWaitTime: 1
   maxWaitTime: 3
   hjonk: {fileID: 636729050}
@@ -2002,6 +2030,8 @@ MonoBehaviour:
   startupState: 0
   testedLight: 0
   startIsActive: 0
+  handTimerActive: 0
+  handTimer: 2
   shuttersOpened: 0
   test: 0
 --- !u!4 &2062141453

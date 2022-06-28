@@ -19,6 +19,12 @@ public class ProcedureManager : MonoBehaviour
     public bool testedLight = false;
     public bool startIsActive = false;
 
+    public bool handTimerActive = false;
+
+    public float handTimer;
+
+    IEnumerator handActivateTimer;
+
     [Header("Open Shutters Components")]
     public bool shuttersOpened = false;
 
@@ -26,13 +32,11 @@ public class ProcedureManager : MonoBehaviour
     public bool test;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-
+        handActivateTimer = HandActivateTimer();
     }
 
-    // Update is called once per frame
     void Update()
     {
         switch (procedureState)
@@ -61,9 +65,20 @@ public class ProcedureManager : MonoBehaviour
                         if (!startIsActive)
                         {
                             Debug.Log("Hand button not Pressed");
+
+                            if(!handTimerActive)
+                            {
+                                handTimerActive = true;
+
+                                StartCoroutine(handActivateTimer);
+                            }
                         }
                         else if (startIsActive)
                         {
+                            StopCoroutine(handActivateTimer);
+
+                            handTimerActive = false;
+
                             procedureState = ProcedureState.OpenShutters;
                         }
                         break;
@@ -97,5 +112,17 @@ public class ProcedureManager : MonoBehaviour
     public void PlayHjonk()
     {
         hjonk.Play();
+    }
+
+    public IEnumerator HandActivateTimer()
+    {
+        yield return new WaitForSeconds(handTimer);
+
+        testedLight = false;
+        startIsActive = false;
+
+        handTimerActive = false;
+
+        startupState = StartupState.TestingLights;
     }
 }

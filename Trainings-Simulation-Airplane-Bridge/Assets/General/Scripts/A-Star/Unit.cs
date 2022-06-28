@@ -18,6 +18,13 @@ public class Unit : MonoBehaviour
     public float turnSpeed = 3;
     public float stoppingDst = 10;
 
+    public int maxItterations;
+
+    public bool foundValidTarget;
+    public bool waitingAtTarget;
+
+    public List<Unit> bobs;
+
     Paths path;
 
     public float minWaitTime, maxWaitTime;
@@ -35,7 +42,7 @@ public class Unit : MonoBehaviour
 
         StartCoroutine(UpdatePath());
 
-        CalculateDst();
+        FindTarget(maxItterations);
     }
 
     private void Update()
@@ -44,13 +51,14 @@ public class Unit : MonoBehaviour
         {
             arrivedAtTarget = true;
 
-            StartCoroutine(NextPos());
+            if (waitingAtTarget)
+            {
+                StartCoroutine(NextPos());
+            }
         }
 
         if(hjonk.isPlaying && !playedHjonk)
         {
-            CalculateHjonkDst();
-
             playedHjonk = true;
             StartCoroutine(ResetHjonk());
 
@@ -107,9 +115,9 @@ public class Unit : MonoBehaviour
         {
             Vector2 pos2D = new Vector2(transform.position.x, transform.position.z);
 
-            while(path.turnBoundaries[pathIndex].HasCrossedLine (pos2D))
+            while (path.turnBoundaries[pathIndex].HasCrossedLine(pos2D))
             {
-                if(pathIndex == path.finishLineIndex)
+                if (pathIndex == path.finishLineIndex)
                 {
                     followingPath = false;
                     break;
@@ -120,13 +128,13 @@ public class Unit : MonoBehaviour
                 }
             }
 
-            if(followingPath)
+            if (followingPath)
             {
-                if(pathIndex >= path.slowDownIndex && stoppingDst > 0)
+                if (pathIndex >= path.slowDownIndex && stoppingDst > 0)
                 {
                     speedPercent = Mathf.Clamp01(path.turnBoundaries[path.finishLineIndex].DistanceFromPoint(pos2D) / stoppingDst);
 
-                    if(speedPercent < 0.01f)
+                    if (speedPercent < 0.01f)
                     {
                         followingPath = false;
                     }
@@ -151,114 +159,47 @@ public class Unit : MonoBehaviour
 
     IEnumerator NextPos()
     {
+        waitingAtTarget = true;
+
+        foundValidTarget = false;
+
         float timeToWait = Random.Range(minWaitTime, maxWaitTime);
         print("Time till next move: "+ timeToWait + " for Unit: " + unitName);
 
         yield return new WaitForSeconds(timeToWait);
 
-        CalculateDst();
+        FindTarget(maxItterations);
 
         arrivedAtTarget = false;
+
+        waitingAtTarget = false;
     }
 
-    public void CalculateDst()
+    public void FindTarget(int maxItterations)
     {
-        List<float> dstToTargets = new List<float>();
-
-        for (int i = 0; i < possibleTargets.Length; i++)
+        if(target == null)
         {
-            float dstBetweenTarget = Vector3.Distance(possibleTargets[i].position, transform.position);
-
-            dstToTargets.Add(dstBetweenTarget);
+            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
         }
 
-        for (int i = 0; i < dstToTargets.Count; i++)
+        int itterations = 0;
+
+        if(maxItterations > itterations)
         {
-            float previousDst = dstToTargets[i] - 1;
-
-            if(dstToTargets[i] < previousDst)
+            for (int i = 0; i < bobs.Count; i++)
             {
-                target = possibleTargets[i];
-            }else if(i != 0)
-            {
-                target = possibleTargets[i - 1];
-            }else if(i == 0)
-            {
-                target = possibleTargets[0];
-            }
-        }
-
-        foreach (Unit people in GameObject.FindObjectsOfType<Unit>())
-        {
-            List<Unit> units = new List<Unit>();
-
-            if (!units.Contains(people))
-            {
-                units.Add(people);
-            }
-
-            for (int i = 0; i < units.Count; i++)
-            {
-                if(units[i].target == target && i <= dstToTargets.Count)
+                if(bobs[i].target == target)
                 {
-                    target = possibleTargets[i];
-                }else
-                {
-                    target = possibleTargets[0];
+                    target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+
+                    foundValidTarget = false;
                 }
             }
-        }
-    }
-
-    public void CalculateHjonkDst()
-    {
-        List<float> dstToTargets = new List<float>();
-
-        for (int i = 0; i < hjonkTargets.Length; i++)
+        }else if(maxItterations == itterations && !foundValidTarget)
         {
-            float dstBetweenTarget = Vector3.Distance(hjonkTargets[i].position, transform.position);
+            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
 
-            dstToTargets.Add(dstBetweenTarget);
-        }
-
-        for (int i = 0; i < dstToTargets.Count; i++)
-        {
-            float previousDst = dstToTargets[i] - 1;
-
-            if (dstToTargets[i] < previousDst)
-            {
-                target = hjonkTargets[i];
-            }
-            else if (i != 0)
-            {
-                target = hjonkTargets[i - 1];
-            }
-            else if (i == 0)
-            {
-                target = hjonkTargets[0];
-            }
-        }
-
-        foreach (Unit people in GameObject.FindObjectsOfType<Unit>())
-        {
-            List<Unit> units = new List<Unit>();
-
-            if (!units.Contains(people))
-            {
-                units.Add(people);
-            }
-
-            for (int i = 0; i < units.Count; i++)
-            {
-                if (units[i].target == target && i <= dstToTargets.Count)
-                {
-                    target = hjonkTargets[i];
-                }
-                else
-                {
-                    target = hjonkTargets[0];
-                }
-            }
+            foundValidTarget = true;
         }
     }
 

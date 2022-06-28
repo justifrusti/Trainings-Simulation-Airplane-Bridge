@@ -18,6 +18,7 @@ TagManager:
   - HuifUpButton
   - HuifDownButton
   - AutoTrimButton
+  - Bob
   layers:
   - Default
   - TransparentFX
