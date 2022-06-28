@@ -59,6 +59,16 @@ public class ControlPannel : MonoBehaviour
         {
             //do something / not implemented
         }
+
+        if (other.tag == "RolluikUpButton")
+        {
+            bridgeController.rolLuikUp = true;
+        }
+
+        if (other.tag == "RolluikDownButton")
+        {
+            bridgeController.rolLuikDown = true;
+        }
     }
 
     void OnTriggerExit(Collider other)

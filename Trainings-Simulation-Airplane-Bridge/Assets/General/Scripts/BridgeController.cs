@@ -6,11 +6,13 @@ public class BridgeController : MonoBehaviour
 {
     [Header("movementValues")]
     public float moveSpeed;
+    public float moveSpeedRolLuik;
     public Vector3 rotationPlus, rotationMin, rotationSpeed;
 
     [Header("movementBool")]
     public bool turnHeadRight;
     public bool turnHeadLeft, bridgeUp, bridgeDown;
+    public bool rolLuikUp, rolLuikDown;
 
     [Header("BridgeTurnPoints")]
     public GameObject bridgeHead;
@@ -20,6 +22,10 @@ public class BridgeController : MonoBehaviour
     public GameObject wheels;
     public Transform wheelTransform;
     public GameObject WheelElevator;
+
+    [Header("rolLuikStuff")]
+    public Transform rolLuikMovePoint;
+    public GameObject rolLuikColider;
 
     public enum BridgeState {Forward, Backward, Left, Right, Up, Down, Stopped, Rotate}
     public BridgeState bridgeState;
@@ -82,6 +88,23 @@ public class BridgeController : MonoBehaviour
         if (bridgeDown == true)
         {
             turnPointBase.transform.Rotate(-0.001f, 0, 0);
-        } 
+        }
+        
+        if(rolLuikUp == true)
+        {
+            rolLuikMovePoint.position += Vector3.up * moveSpeedRolLuik * Time.deltaTime;
+        }
+
+        if (rolLuikDown == true)
+        {
+            rolLuikMovePoint.position += -Vector3.up * moveSpeedRolLuik * Time.deltaTime;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "RolLuikTriggerBottom")
+        {
+            print("test");
+        }
     }
 }
