@@ -22,7 +22,9 @@ public class JoystickController : MonoBehaviour
 
     public SteamVR_Action_Single squezeAction;
 
-    private Quaternion baseRotation;
+    public Quaternion baseRotation;
+
+    public bool joystickGrabbed;
 
     void Start()
     {
@@ -40,7 +42,6 @@ public class JoystickController : MonoBehaviour
         }
         else if (forwardBackwardTilt > 5 && forwardBackwardTilt < 74)
         {
-            print("test");
             bridgeController.bridgeState = BridgeController.BridgeState.Forward;
         }
 
@@ -54,7 +55,11 @@ public class JoystickController : MonoBehaviour
         {
             bridgeController.bridgeState = BridgeController.BridgeState.Left;
         }
-        lockedRotation(); 
+        lockedRotation();
+        if (joystickGrabbed == false)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, baseRotation, Time.time * rotationResetSpeed);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -64,13 +69,15 @@ public class JoystickController : MonoBehaviour
             if (SteamVR_Actions._default.GrabPinch.GetState(SteamVR_Input_Sources.Any) && SteamVR_Actions._default.GrabGrip.GetState(SteamVR_Input_Sources.Any))
             {
                 transform.LookAt(other.transform.position, transform.up);
+                joystickGrabbed = true;
             }
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        transform.rotation = Quaternion.Slerp(transform.rotation, baseRotation, Time.time * rotationResetSpeed);
+        joystickGrabbed = false;
     }
+
 
     void lockedRotation()
     {

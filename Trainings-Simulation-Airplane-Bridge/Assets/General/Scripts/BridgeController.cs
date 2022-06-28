@@ -25,7 +25,9 @@ public class BridgeController : MonoBehaviour
 
     [Header("rolLuikStuff")]
     public Transform rolLuikMovePoint;
-    public GameObject rolLuikColider;
+
+    public GameObject tunnelExtended;
+    public GameObject tunnelBase;
 
     public enum BridgeState {Forward, Backward, Left, Right, Up, Down, Stopped, Rotate}
     public BridgeState bridgeState;
@@ -46,7 +48,7 @@ public class BridgeController : MonoBehaviour
                     turnPointBase.transform.Rotate(rotationPlus);
                 }else
                 {
-                    transform.localPosition += wheelTransform.forward * Time.deltaTime * moveSpeed;
+                    tunnelExtended.transform.localPosition += wheelTransform.forward * Time.deltaTime * moveSpeed;
                 }
                 break;
 
@@ -57,7 +59,7 @@ public class BridgeController : MonoBehaviour
                     turnPointBase.transform.Rotate(rotationPlus);
                 }else
                 {
-                    transform.localPosition += -wheelTransform.forward * Time.deltaTime * moveSpeed;
+                    tunnelExtended.transform.localPosition += -wheelTransform.forward * Time.deltaTime * moveSpeed;
                 }
                 break;
 
@@ -100,11 +102,5 @@ public class BridgeController : MonoBehaviour
             rolLuikMovePoint.position += -Vector3.up * moveSpeedRolLuik * Time.deltaTime;
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "RolLuikTriggerBottom")
-        {
-            print("test");
-        }
-    }
+   
 }
