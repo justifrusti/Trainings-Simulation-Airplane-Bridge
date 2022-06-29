@@ -10,6 +10,8 @@ public class ControlPannel : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
+        //inster audio here
         if (other.tag == "MoveBridgeUp")
         {
             bridgeController.bridgeUp = true;
@@ -73,6 +75,7 @@ public class ControlPannel : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        //insert audio here
         bridgeController.bridgeState = BridgeController.BridgeState.Stopped;
         bridgeController.turnHeadRight = false;
         bridgeController.turnHeadLeft = false;
