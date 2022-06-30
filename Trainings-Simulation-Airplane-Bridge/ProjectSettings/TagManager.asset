@@ -23,14 +23,12 @@ TagManager:
   - RolLuikTriggerBottom
   - PunishedBob
   - Thumbs Up
-<<<<<<< Updated upstream
   - Death
-=======
   - Forward
   - Backward
   - Left
   - Right
->>>>>>> Stashed changes
+  - Target
   layers:
   - Default
   - TransparentFX
@@ -40,7 +38,7 @@ TagManager:
   - UI
   - Unwalkable
   - Walkable
-  - 
+  - MidWalkable
   - 
   - 
   - 

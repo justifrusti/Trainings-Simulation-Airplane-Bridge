@@ -51,18 +51,6 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, target.position) <= stoppingDst && !arrivedAtTarget)
-        {
-            arrivedAtTarget = true;
-
-            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
-
-            StartCoroutine(NextPos());
-            StartCoroutine(UpdatePath());
-
-            arrivedAtTarget = false;
-        }
-
         if(hjonk.isPlaying && !playedHjonk)
         {
             playedHjonk = true;
@@ -97,6 +85,21 @@ public class Unit : MonoBehaviour
         yield return new WaitForSeconds(hjonk.clip.length);
 
         playedHjonk = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Target" && !arrivedAtTarget)
+        {
+            arrivedAtTarget = true;
+
+            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+
+            StartCoroutine(NextPos());
+            StartCoroutine(UpdatePath());
+
+            arrivedAtTarget = false;
+        }
     }
 
     public void OnPathFound(Vector3[] waypoints, bool pathSuccesfull)
@@ -183,7 +186,7 @@ public class Unit : MonoBehaviour
 
     public void OnDrawGizmos()
     {
-        if (path != null)
+        if (path != null && displayTurnGizmos)
         {
             path.DrawWithGizmos();
         }

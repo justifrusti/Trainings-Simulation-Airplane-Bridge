@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 133652239}
   - component: {fileID: 133652238}
   - component: {fileID: 133652237}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestNPC (2)
   m_TagString: Bob
   m_Icon: {fileID: 0}
@@ -166,7 +166,6 @@ MonoBehaviour:
   - {fileID: 356355276}
   - {fileID: 722687319}
   - {fileID: 702088611}
-  - {fileID: 1566278180}
   - {fileID: 1104872359}
   - {fileID: 209560085}
   - {fileID: 1271083192}
@@ -188,8 +187,8 @@ MonoBehaviour:
   turnDst: 5
   turnSpeed: 3
   stoppingDst: 10
-  minWaitTime: 0.1
-  maxWaitTime: 0.3
+  minWaitTime: 5
+  maxWaitTime: 15
   hjonk: {fileID: 636729050}
   playedHjonk: 0
   arrivedAtTarget: 0
@@ -282,7 +281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133652236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: 1, z: 5.4}
+  m_LocalPosition: {x: 15.84, y: 1, z: 12.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
@@ -317,7 +316,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &173788077
 SphereCollider:
@@ -346,7 +345,7 @@ GameObject:
   - component: {fileID: 185817685}
   - component: {fileID: 185817684}
   - component: {fileID: 185817683}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestNPC (3)
   m_TagString: Bob
   m_Icon: {fileID: 0}
@@ -361,7 +360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185817681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.58, y: 1, z: 18.49}
+  m_LocalPosition: {x: -14.54, y: 1, z: 19.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
@@ -389,7 +388,6 @@ MonoBehaviour:
   - {fileID: 356355276}
   - {fileID: 722687319}
   - {fileID: 702088611}
-  - {fileID: 1566278180}
   - {fileID: 1104872359}
   - {fileID: 209560085}
   - {fileID: 1271083192}
@@ -411,8 +409,8 @@ MonoBehaviour:
   turnDst: 5
   turnSpeed: 3
   stoppingDst: 10
-  minWaitTime: 0.1
-  maxWaitTime: 0.3
+  minWaitTime: 5
+  maxWaitTime: 15
   hjonk: {fileID: 636729050}
   playedHjonk: 0
   arrivedAtTarget: 0
@@ -526,7 +524,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &189171837
 SphereCollider:
@@ -670,7 +668,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &209560086
 SphereCollider:
@@ -714,7 +712,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &285138221
 SphereCollider:
@@ -743,7 +741,7 @@ GameObject:
   - component: {fileID: 317937105}
   - component: {fileID: 317937104}
   - component: {fileID: 317937103}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestNPC
   m_TagString: Bob
   m_Icon: {fileID: 0}
@@ -772,7 +770,6 @@ MonoBehaviour:
   - {fileID: 356355276}
   - {fileID: 722687319}
   - {fileID: 702088611}
-  - {fileID: 1566278180}
   - {fileID: 1104872359}
   - {fileID: 209560085}
   - {fileID: 1271083192}
@@ -794,8 +791,8 @@ MonoBehaviour:
   turnDst: 5
   turnSpeed: 3
   stoppingDst: 10
-  minWaitTime: 0.1
-  maxWaitTime: 0.3
+  minWaitTime: 5
+  maxWaitTime: 15
   hjonk: {fileID: 636729050}
   playedHjonk: 0
   arrivedAtTarget: 0
@@ -888,7 +885,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317937102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.63, y: 1, z: -12.36}
+  m_LocalPosition: {x: 17.96, y: 1, z: -18.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
@@ -1055,7 +1052,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &507336158
 SphereCollider:
@@ -1099,7 +1096,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.4506519, y: -21.5, z: 9.239679}
   m_LocalScale: {x: 3.3346565, y: 5.7813, z: 19.749235}
-  m_Children: []
+  m_Children:
+  - {fileID: 1591240793}
   m_Father: {fileID: 2087955086}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1115,7 +1113,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.2367997, y: 1, z: 1.2317427}
-  m_Center: {x: -0.17239484, y: 0, z: -0.0020619873}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &575341058
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1195,7 +1193,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &594596335
 SphereCollider:
@@ -1240,7 +1238,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &636729050
 AudioSource:
@@ -1591,11 +1589,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829781073}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1, y: 0, z: -12.55}
+  m_LocalPosition: {x: -10.06, y: 0, z: -13.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &829781075
 SphereCollider:
@@ -1944,6 +1942,10 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 128
     terrainPenalty: 0
+  - terrainMask:
+      serializedVersion: 2
+      m_Bits: 256
+    terrainPenalty: 20
 --- !u!4 &1082740814
 Transform:
   m_ObjectHideFlags: 0
@@ -1987,7 +1989,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1104872360
 SphereCollider:
@@ -2016,7 +2018,7 @@ GameObject:
   - component: {fileID: 1173326817}
   - component: {fileID: 1173326816}
   - component: {fileID: 1173326815}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestNPC (1)
   m_TagString: Bob
   m_Icon: {fileID: 0}
@@ -2045,7 +2047,6 @@ MonoBehaviour:
   - {fileID: 356355276}
   - {fileID: 722687319}
   - {fileID: 702088611}
-  - {fileID: 1566278180}
   - {fileID: 1104872359}
   - {fileID: 209560085}
   - {fileID: 1271083192}
@@ -2067,8 +2068,8 @@ MonoBehaviour:
   turnDst: 5
   turnSpeed: 3
   stoppingDst: 10
-  minWaitTime: 0.1
-  maxWaitTime: 0.3
+  minWaitTime: 5
+  maxWaitTime: 15
   hjonk: {fileID: 636729050}
   playedHjonk: 0
   arrivedAtTarget: 0
@@ -2161,7 +2162,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173326814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.34, y: 1, z: -9.64}
+  m_LocalPosition: {x: -17.73, y: 1, z: -16.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
@@ -2196,7 +2197,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1219377896
 SphereCollider:
@@ -2240,7 +2241,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1223596621
 SphereCollider:
@@ -2284,7 +2285,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1271083193
 SphereCollider:
@@ -2421,7 +2422,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1528182959
 SphereCollider:
@@ -2436,7 +2437,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1566278179
+--- !u!1 &1591240792
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2444,41 +2445,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1566278180}
-  - component: {fileID: 1566278181}
-  m_Layer: 0
-  m_Name: Target (7)
+  - component: {fileID: 1591240793}
+  - component: {fileID: 1591240794}
+  m_Layer: 8
+  m_Name: Extra Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1566278180
+--- !u!4 &1591240793
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566278179}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.36, y: 0, z: -1.88}
+  m_GameObject: {fileID: 1591240792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2102987117}
-  m_RootOrder: 11
+  m_Father: {fileID: 575341056}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1566278181
-SphereCollider:
+--- !u!65 &1591240794
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566278179}
+  m_GameObject: {fileID: 1591240792}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Size: {x: 4.113973, y: 1, z: 1.3818377}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1840713085
 GameObject:
@@ -2509,7 +2510,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1840713087
 SphereCollider:
@@ -2553,7 +2554,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1874221748
 SphereCollider:
@@ -2597,7 +2598,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1898285220
 SphereCollider:
@@ -2641,7 +2642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1931971393
 SphereCollider:
@@ -2859,7 +2860,7 @@ MonoBehaviour:
   shuttersOpened: 0
   doneMoving: 0
   finished: 0
-  gameSpeed: 1
+  gameSpeed: 19.1
 --- !u!4 &2062141453
 Transform:
   m_ObjectHideFlags: 0
@@ -2990,7 +2991,6 @@ Transform:
   - {fileID: 356355276}
   - {fileID: 722687319}
   - {fileID: 702088611}
-  - {fileID: 1566278180}
   - {fileID: 1104872359}
   - {fileID: 209560085}
   - {fileID: 1271083192}
