@@ -51,11 +51,16 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, target.position) < stoppingDst && !arrivedAtTarget)
+        if (Vector3.Distance(transform.position, target.position) <= stoppingDst && !arrivedAtTarget)
         {
             arrivedAtTarget = true;
 
+            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+
             StartCoroutine(NextPos());
+            StartCoroutine(UpdatePath());
+
+            arrivedAtTarget = false;
         }
 
         if(hjonk.isPlaying && !playedHjonk)
@@ -66,7 +71,7 @@ public class Unit : MonoBehaviour
 
             target = hjonkTargets[Random.Range(0, hjonkTargets.Length)];
 
-            StartCoroutine(UpdatePath());
+            //StartCoroutine(UpdatePath());
 
             StartCoroutine(ResetHjonk());
         }
@@ -84,32 +89,7 @@ public class Unit : MonoBehaviour
 
         arrivedAtTarget = false;
 
-        if(previousTarget == target)
-        {
-            ResetPath();
-        }
-
-        //StartCoroutine(UpdatePath());
-    }
-
-    public void ResetPath()
-    {
-        Transform previousTarget;
-        Transform newTarget;
-
-        previousTarget = target;
-
-        if(target == previousTarget)
-        {
-            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
-
-            newTarget = target;
-
-            if(newTarget == previousTarget)
-            {
-                ResetPath();
-            }
-        }
+        StartCoroutine(UpdatePath());
     }
 
     IEnumerator ResetHjonk()

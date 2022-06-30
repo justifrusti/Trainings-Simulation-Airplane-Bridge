@@ -297,6 +297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 173788076}
+  - component: {fileID: 173788077}
   m_Layer: 0
   m_Name: HjonkTarget (2)
   m_TagString: Untagged
@@ -318,6 +319,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &173788077
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173788075}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &185817681
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 189171836}
+  - component: {fileID: 189171837}
   m_Layer: 0
   m_Name: Target (16)
   m_TagString: Untagged
@@ -507,12 +522,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189171835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.4, y: 0, z: 17.7}
+  m_LocalPosition: {x: 9.85, y: 0, z: 19.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &189171837
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189171835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &208073457
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +650,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 209560085}
+  - component: {fileID: 209560086}
   m_Layer: 0
   m_Name: Target (9)
   m_TagString: Untagged
@@ -643,6 +672,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &209560086
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209560084}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &285138219
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +694,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 285138220}
+  - component: {fileID: 285138221}
   m_Layer: 0
   m_Name: Target (18)
   m_TagString: Untagged
@@ -673,6 +716,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &285138221
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285138219}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &317937102
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +903,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 356355276}
+  - component: {fileID: 356355277}
   m_Layer: 0
   m_Name: Target (4)
   m_TagString: Untagged
@@ -862,12 +919,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356355275}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.4, y: 0, z: -19.8}
+  m_LocalPosition: {x: 15.84, y: 0, z: -21.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &356355277
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356355275}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &389018867
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,6 +947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 389018868}
+  - component: {fileID: 389018869}
   m_Layer: 0
   m_Name: Target (1)
   m_TagString: Untagged
@@ -892,12 +963,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389018867}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.7, y: 0, z: -19.2}
+  m_LocalPosition: {x: -18.22, y: 0, z: -17.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2102987117}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &389018869
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389018867}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &424026669
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,6 +991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 424026670}
+  - component: {fileID: 424026671}
   m_Layer: 0
   m_Name: Target (2)
   m_TagString: Untagged
@@ -928,6 +1013,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &424026671
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424026669}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &507336156
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +1035,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 507336157}
+  - component: {fileID: 507336158}
   m_Layer: 0
   m_Name: Target (12)
   m_TagString: Untagged
@@ -958,6 +1057,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &507336158
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507336156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &575341055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 594596334}
+  - component: {fileID: 594596335}
   m_Layer: 0
   m_Name: HjonkTarget (1)
   m_TagString: Untagged
@@ -1084,6 +1197,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &594596335
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594596333}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &636729048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,6 +1220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 636729049}
   - component: {fileID: 636729050}
+  - component: {fileID: 636729051}
   m_Layer: 0
   m_Name: HonkManager
   m_TagString: Untagged
@@ -1211,6 +1338,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &636729051
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636729048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &636927466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,6 +1443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 702088611}
+  - component: {fileID: 702088612}
   m_Layer: 0
   m_Name: Target (6)
   m_TagString: Untagged
@@ -1324,6 +1465,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &702088612
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702088610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &722687318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,6 +1487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 722687319}
+  - component: {fileID: 722687320}
   m_Layer: 0
   m_Name: Target (5)
   m_TagString: Untagged
@@ -1354,6 +1509,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &722687320
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722687318}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &768410260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,6 +1531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 768410261}
+  - component: {fileID: 768410262}
   m_Layer: 0
   m_Name: Target (3)
   m_TagString: Untagged
@@ -1384,6 +1553,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &768410262
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768410260}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &829781073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,6 +1575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 829781074}
+  - component: {fileID: 829781075}
   m_Layer: 0
   m_Name: Target (15)
   m_TagString: Untagged
@@ -1414,6 +1597,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &829781075
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829781073}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &858497880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1938,7 @@ MonoBehaviour:
     m_Bits: 64
   gridWorldSize: {x: 50, y: 50}
   nodeRadius: 0.5
-  obstacleProximityPenalty: 10
+  obstacleProximityPenalty: 15
   walkableRegions:
   - terrainMask:
       serializedVersion: 2
@@ -1771,6 +1967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1104872359}
+  - component: {fileID: 1104872360}
   m_Layer: 0
   m_Name: Target (8)
   m_TagString: Untagged
@@ -1792,6 +1989,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1104872360
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104872358}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1173326814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1966,6 +2176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1219377895}
+  - component: {fileID: 1219377896}
   m_Layer: 0
   m_Name: Target (19)
   m_TagString: Untagged
@@ -1987,6 +2198,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1219377896
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219377894}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1223596619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,6 +2220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1223596620}
+  - component: {fileID: 1223596621}
   m_Layer: 0
   m_Name: HjonkTarget (3)
   m_TagString: Untagged
@@ -2017,6 +2242,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1223596621
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223596619}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1271083191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,6 +2264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1271083192}
+  - component: {fileID: 1271083193}
   m_Layer: 0
   m_Name: Target (10)
   m_TagString: Untagged
@@ -2047,6 +2286,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1271083193
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271083191}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1341086102
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,6 +2401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1528182958}
+  - component: {fileID: 1528182959}
   m_Layer: 0
   m_Name: Target (14)
   m_TagString: Untagged
@@ -2170,6 +2423,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1528182959
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528182957}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1566278179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,6 +2445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1566278180}
+  - component: {fileID: 1566278181}
   m_Layer: 0
   m_Name: Target (7)
   m_TagString: Untagged
@@ -2200,6 +2467,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1566278181
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566278179}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1840713085
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,6 +2489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1840713086}
+  - component: {fileID: 1840713087}
   m_Layer: 0
   m_Name: Target (11)
   m_TagString: Untagged
@@ -2230,6 +2511,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1840713087
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840713085}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1874221746
 GameObject:
   m_ObjectHideFlags: 0
@@ -2239,6 +2533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1874221747}
+  - component: {fileID: 1874221748}
   m_Layer: 0
   m_Name: Target (17)
   m_TagString: Untagged
@@ -2260,6 +2555,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1874221748
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874221746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1898285218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,6 +2577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1898285219}
+  - component: {fileID: 1898285220}
   m_Layer: 0
   m_Name: HjonkTarget
   m_TagString: Untagged
@@ -2290,6 +2599,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1898285220
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898285218}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1931971391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,6 +2621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1931971392}
+  - component: {fileID: 1931971393}
   m_Layer: 0
   m_Name: Target (13)
   m_TagString: Untagged
@@ -2320,6 +2643,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1931971393
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931971391}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2040112448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,15 +2847,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3168f041a32ac3d4ba3f8b2217f30264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: 
   hjonk: {fileID: 636729050}
   procedureState: 0
   startupState: 0
+  isReleased: 0
   testedLight: 0
   startIsActive: 0
   handTimerActive: 0
   handTimer: 2
   shuttersOpened: 0
-  test: 0
+  doneMoving: 0
+  finished: 0
   gameSpeed: 1
 --- !u!4 &2062141453
 Transform:
@@ -2544,6 +2883,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2063097167}
+  - component: {fileID: 2063097168}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -2565,6 +2905,19 @@ Transform:
   m_Father: {fileID: 2102987117}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2063097168
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063097166}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2087955085
 GameObject:
   m_ObjectHideFlags: 0
