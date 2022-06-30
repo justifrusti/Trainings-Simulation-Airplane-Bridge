@@ -60,11 +60,13 @@ public class ControlPannel : MonoBehaviour
         if (other.tag == "HuifDownButton")
         {
             //do something / not implemented
+            procedureManager.doneMoving = true;
         }
 
         if (other.tag == "RolluikUpButton")
         {
             bridgeController.rolLuikUp = true;
+            procedureManager.shuttersOpened = true;
         }
 
         if (other.tag == "RolluikDownButton")
