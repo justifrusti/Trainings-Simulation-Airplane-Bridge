@@ -23,6 +23,7 @@ TagManager:
   - RolLuikTriggerBottom
   - PunishedBob
   - Thumbs Up
+  - Death
   layers:
   - Default
   - TransparentFX

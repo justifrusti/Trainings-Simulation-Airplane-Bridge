@@ -36,6 +36,11 @@ public class PunishedBobMoveCode : MonoBehaviour
                 anim.SetBool("Walking", false);
                 anim.SetBool("Tumbs UP", true);
             }
+
+            if(other.gameObject.tag == "Death")
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 

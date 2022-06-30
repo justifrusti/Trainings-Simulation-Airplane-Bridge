@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayTurnGizmos: 0
-  target: {fileID: 424026670}
+  target: {fileID: 0}
   possibleTargets:
   - {fileID: 2063097167}
   - {fileID: 389018868}
@@ -187,14 +187,7 @@ MonoBehaviour:
   speed: 5
   turnDst: 5
   turnSpeed: 3
-  stoppingDst: 2
-  maxItterations: 30
-  foundValidTarget: 0
-  waitingAtTarget: 0
-  bobs:
-  - {fileID: 185817683}
-  - {fileID: 1173326815}
-  - {fileID: 317937103}
+  stoppingDst: 10
   minWaitTime: 0.1
   maxWaitTime: 0.3
   hjonk: {fileID: 636729050}
@@ -373,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayTurnGizmos: 0
-  target: {fileID: 768410261}
+  target: {fileID: 0}
   possibleTargets:
   - {fileID: 2063097167}
   - {fileID: 389018868}
@@ -403,14 +396,7 @@ MonoBehaviour:
   speed: 5
   turnDst: 5
   turnSpeed: 3
-  stoppingDst: 2
-  maxItterations: 30
-  foundValidTarget: 0
-  waitingAtTarget: 0
-  bobs:
-  - {fileID: 317937103}
-  - {fileID: 1173326815}
-  - {fileID: 133652237}
+  stoppingDst: 10
   minWaitTime: 0.1
   maxWaitTime: 0.3
   hjonk: {fileID: 636729050}
@@ -721,7 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayTurnGizmos: 0
-  target: {fileID: 2063097167}
+  target: {fileID: 0}
   possibleTargets:
   - {fileID: 2063097167}
   - {fileID: 389018868}
@@ -751,14 +737,7 @@ MonoBehaviour:
   speed: 5
   turnDst: 5
   turnSpeed: 3
-  stoppingDst: 2
-  maxItterations: 30
-  foundValidTarget: 0
-  waitingAtTarget: 0
-  bobs:
-  - {fileID: 1173326815}
-  - {fileID: 133652237}
-  - {fileID: 185817683}
+  stoppingDst: 10
   minWaitTime: 0.1
   maxWaitTime: 0.3
   hjonk: {fileID: 636729050}
@@ -1847,7 +1826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayTurnGizmos: 0
-  target: {fileID: 389018868}
+  target: {fileID: 0}
   possibleTargets:
   - {fileID: 2063097167}
   - {fileID: 389018868}
@@ -1877,14 +1856,7 @@ MonoBehaviour:
   speed: 5
   turnDst: 5
   turnSpeed: 3
-  stoppingDst: 2
-  maxItterations: 30
-  foundValidTarget: 0
-  waitingAtTarget: 0
-  bobs:
-  - {fileID: 185817683}
-  - {fileID: 133652237}
-  - {fileID: 317937103}
+  stoppingDst: 10
   minWaitTime: 0.1
   maxWaitTime: 0.3
   hjonk: {fileID: 636729050}
@@ -2548,6 +2520,7 @@ MonoBehaviour:
   handTimer: 2
   shuttersOpened: 0
   test: 0
+  gameSpeed: 1
 --- !u!4 &2062141453
 Transform:
   m_ObjectHideFlags: 0
