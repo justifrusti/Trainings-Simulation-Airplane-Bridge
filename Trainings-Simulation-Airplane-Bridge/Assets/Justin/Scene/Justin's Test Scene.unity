@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c59fbe2c31c244dbb98c48e598f02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hjonkState: 0
   displayTurnGizmos: 1
   target: {fileID: 0}
   possibleTargets:
@@ -356,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c59fbe2c31c244dbb98c48e598f02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hjonkState: 0
   displayTurnGizmos: 1
   target: {fileID: 0}
   possibleTargets:
@@ -1539,6 +1541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c59fbe2c31c244dbb98c48e598f02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hjonkState: 0
   displayTurnGizmos: 1
   target: {fileID: 0}
   possibleTargets:
@@ -1556,7 +1559,7 @@ MonoBehaviour:
   turnDst: 5
   turnSpeed: 3
   stoppingDst: 2
-  maxItterations: 10
+  maxItterations: 50
   foundValidTarget: 0
   waitingAtTarget: 0
   bobs:
@@ -1695,6 +1698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c59fbe2c31c244dbb98c48e598f02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hjonkState: 0
   displayTurnGizmos: 1
   target: {fileID: 0}
   possibleTargets:

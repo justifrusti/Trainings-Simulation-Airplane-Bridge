@@ -6859,6 +6859,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: 8.760079
       objectReference: {fileID: 0}
+    - target: {fileID: 5909169547216051286, guid: ab7826f36e5f0bc4dad1c95f2e7f3694, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6343655999093799320, guid: ab7826f36e5f0bc4dad1c95f2e7f3694, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -55371,7 +55375,7 @@ GameObject:
   - component: {fileID: 1826429053}
   m_Layer: 0
   m_Name: Node Tumbs up
-  m_TagString: Untagged
+  m_TagString: Thumbs Up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55384,7 +55388,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826429052}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1}
@@ -68181,9 +68185,11 @@ GameObject:
   - component: {fileID: 5866666019902526371}
   - component: {fileID: 919132147945083748}
   - component: {fileID: 919132147945083749}
+  - component: {fileID: 919132147945083750}
+  - component: {fileID: 919132147945083751}
   m_Layer: 0
   m_Name: Punished Bob
-  m_TagString: Untagged
+  m_TagString: PunishedBob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68214,6 +68220,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 1.8, z: 0.6}
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &919132147945083750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147945083747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2006a1ed7622df248b2f8ef6abfdb72b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasAlreadyEnteredTrigger: 0
+  playerHasThumbUp: 0
+  anim: {fileID: 5866666019902526371}
+--- !u!54 &919132147945083751
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147945083747}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &919132148465289738
 GameObject:
   m_ObjectHideFlags: 0

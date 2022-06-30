@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    public enum HjonkState { Hjonked, NotHjonked}
+    public HjonkState hjonkState;
+
     public bool displayTurnGizmos;
 
     const float minPathUpdateTime = .2f;
@@ -62,7 +65,8 @@ public class Unit : MonoBehaviour
             playedHjonk = true;
             StartCoroutine(ResetHjonk());
 
-            target = hjonkTargets[Random.Range(0, hjonkTargets.Length)];
+            hjonkState = HjonkState.Hjonked;
+            FindTarget(maxItterations);
             
             Debug.Log("Moving towards escape target: " + target);
         }
@@ -155,6 +159,16 @@ public class Unit : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         playedHjonk = false;
+
+        float waitTime = Random.Range(minWaitTime, maxWaitTime);
+
+        yield return new WaitForSeconds(waitTime);
+
+        print("Moving to new target in: " + waitTime + " seconds");
+
+        hjonkState = HjonkState.NotHjonked;
+
+        FindTarget(maxItterations);
     }
 
     IEnumerator NextPos()
@@ -184,22 +198,44 @@ public class Unit : MonoBehaviour
 
         int itterations = 0;
 
-        if(maxItterations > itterations)
+        if (hjonkState == HjonkState.NotHjonked)
         {
-            for (int i = 0; i < bobs.Count; i++)
+            if (maxItterations > itterations)
             {
-                if(bobs[i].target == target)
+                for (int i = 0; i < bobs.Count; i++)
                 {
-                    target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+                    if (bobs[i].target == target)
+                    {
+                        target = possibleTargets[Random.Range(0, possibleTargets.Length)];
 
-                    foundValidTarget = false;
+                        foundValidTarget = false;
+                    }
                 }
-            }
-        }else if(maxItterations == itterations && !foundValidTarget)
-        {
-            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+            }else if (maxItterations == itterations && !foundValidTarget)
+            {
+                target = possibleTargets[Random.Range(0, possibleTargets.Length)];
 
-            foundValidTarget = true;
+                foundValidTarget = true;
+            }
+        }else if(hjonkState == HjonkState.Hjonked)
+        {
+            if (maxItterations > itterations)
+            {
+                for (int i = 0; i < bobs.Count; i++)
+                {
+                    if (bobs[i].target == target)
+                    {
+                        target = hjonkTargets[Random.Range(0, hjonkTargets.Length)];
+
+                        foundValidTarget = false;
+                    }
+                }
+            }else if (maxItterations == itterations && !foundValidTarget)
+            {
+                target = hjonkTargets[Random.Range(0, hjonkTargets.Length)];
+
+                foundValidTarget = true;
+            }
         }
     }
 

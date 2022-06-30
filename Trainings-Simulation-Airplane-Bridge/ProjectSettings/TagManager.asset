@@ -19,6 +19,10 @@ TagManager:
   - HuifDownButton
   - AutoTrimButton
   - Bob
+  - RolLuikTriggerTop
+  - RolLuikTriggerBottom
+  - PunishedBob
+  - Thumbs Up
   layers:
   - Default
   - TransparentFX
