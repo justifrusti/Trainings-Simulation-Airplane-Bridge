@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ProcedureManager : MonoBehaviour
 {
     public string sceneToLoad;
+    public PunishedBobMoveCode bob;
 
     [Header("Honk Components")]
     public AudioSource hjonk;
@@ -51,6 +52,11 @@ public class ProcedureManager : MonoBehaviour
     void Update()
     {
         Time.timeScale = gameSpeed;
+
+        if(bob.playerHasThumbUp)
+        {
+            isReleased = true;
+        }
 
         switch (procedureState)
         {

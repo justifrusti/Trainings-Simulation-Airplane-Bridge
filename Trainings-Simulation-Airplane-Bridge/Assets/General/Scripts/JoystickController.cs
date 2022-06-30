@@ -8,6 +8,8 @@ public class JoystickController : MonoBehaviour
 {
     public BridgeController bridgeController;
 
+    public PunishedBobMoveCode bobCode;
+
     public Transform topOfJoystick;
 
     private float rot = 0f;

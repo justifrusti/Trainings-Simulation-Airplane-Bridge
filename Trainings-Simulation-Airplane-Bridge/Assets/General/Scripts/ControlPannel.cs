@@ -8,6 +8,12 @@ public class ControlPannel : MonoBehaviour
 
     public BridgeController bridgeController;
 
+    public Animator anim;
+
+    public AnimationClip clip;
+
+    private AnimatorClipInfo clipInfo;
+
     void OnTriggerEnter(Collider other)
     {
 
@@ -59,8 +65,16 @@ public class ControlPannel : MonoBehaviour
 
         if (other.tag == "HuifDownButton")
         {
+            bool triggeredCoroutine = false;
             //do something / not implemented
             procedureManager.doneMoving = true;
+
+            if(triggeredCoroutine == false)
+            {
+                triggeredCoroutine = true;
+
+                StartCoroutine(FinishedTriggered());
+            }
         }
 
         if (other.tag == "RolluikUpButton")
@@ -73,6 +87,17 @@ public class ControlPannel : MonoBehaviour
         {
             bridgeController.rolLuikDown = true;
         }
+    }
+
+    IEnumerator FinishedTriggered()
+    {
+        anim.SetBool("HuifNeer", true);
+
+        float time = clip.length * 3;
+
+        yield return new WaitForSeconds(time);
+
+        procedureManager.finished = true;
     }
 
     void OnTriggerExit(Collider other)
