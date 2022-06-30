@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public enum HjonkState { Hjonked, NotHjonked}
-    public HjonkState hjonkState;
-
     public bool displayTurnGizmos;
 
     const float minPathUpdateTime = .2f;
@@ -21,15 +18,18 @@ public class Unit : MonoBehaviour
     public float turnSpeed = 3;
     public float stoppingDst = 10;
 
+    /* needed for upgraded version
     public int maxItterations;
 
     public bool foundValidTarget;
     public bool waitingAtTarget;
 
     public List<Unit> bobs;
+    */
 
     Paths path;
 
+    [Range(0.0f, 30.0f)]
     public float minWaitTime, maxWaitTime;
 
     public AudioSource hjonk;
@@ -41,11 +41,12 @@ public class Unit : MonoBehaviour
 
     private void Start()
     {
-        playedHjonk = false;
+        if (target == null)
+        {
+            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+        }
 
         StartCoroutine(UpdatePath());
-
-        FindTarget(maxItterations);
     }
 
     private void Update()
@@ -54,27 +55,73 @@ public class Unit : MonoBehaviour
         {
             arrivedAtTarget = true;
 
-            if (waitingAtTarget)
-            {
-                StartCoroutine(NextPos());
-            }
+            StartCoroutine(NextPos());
         }
 
         if(hjonk.isPlaying && !playedHjonk)
         {
             playedHjonk = true;
-            StartCoroutine(ResetHjonk());
 
-            hjonkState = HjonkState.Hjonked;
-            FindTarget(maxItterations);
-            
-            Debug.Log("Moving towards escape target: " + target);
+            StopAllCoroutines();
+
+            target = hjonkTargets[Random.Range(0, hjonkTargets.Length)];
+
+            StartCoroutine(UpdatePath());
+
+            StartCoroutine(ResetHjonk());
         }
+    }
+
+    IEnumerator NextPos()
+    {
+        Transform previousTarget = target;
+
+        float nextPosTime = Random.Range(minWaitTime, maxWaitTime);
+
+        yield return new WaitForSeconds(nextPosTime);
+
+        target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+
+        arrivedAtTarget = false;
+
+        if(previousTarget == target)
+        {
+            ResetPath();
+        }
+
+        //StartCoroutine(UpdatePath());
+    }
+
+    public void ResetPath()
+    {
+        Transform previousTarget;
+        Transform newTarget;
+
+        previousTarget = target;
+
+        if(target == previousTarget)
+        {
+            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+
+            newTarget = target;
+
+            if(newTarget == previousTarget)
+            {
+                ResetPath();
+            }
+        }
+    }
+
+    IEnumerator ResetHjonk()
+    {
+        yield return new WaitForSeconds(hjonk.clip.length);
+
+        playedHjonk = false;
     }
 
     public void OnPathFound(Vector3[] waypoints, bool pathSuccesfull)
     {
-        if(pathSuccesfull)
+        if (pathSuccesfull)
         {
             path = new Paths(waypoints, transform.position, turnDst, stoppingDst);
             StopCoroutine("FollowPath");
@@ -84,7 +131,7 @@ public class Unit : MonoBehaviour
 
     IEnumerator UpdatePath()
     {
-        if(Time.timeSinceLevelLoad < .3f)
+        if (Time.timeSinceLevelLoad < .3f)
         {
             yield return new WaitForSeconds(.3f);
         }
@@ -99,7 +146,7 @@ public class Unit : MonoBehaviour
             yield return new WaitForSeconds(minPathUpdateTime);
             if ((target.position - targetPosOld).sqrMagnitude > sqrMoveThreshold)
             {
-                PathRequestManager.RequestPath(new PathRequest (transform.position, target.position, OnPathFound));
+                PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
                 targetPosOld = target.position;
             }
         }
@@ -154,99 +201,11 @@ public class Unit : MonoBehaviour
         }
     }
 
-    IEnumerator ResetHjonk()
-    {
-        yield return new WaitForSeconds(1);
-
-        playedHjonk = false;
-
-        float waitTime = Random.Range(minWaitTime, maxWaitTime);
-
-        yield return new WaitForSeconds(waitTime);
-
-        print("Moving to new target in: " + waitTime + " seconds");
-
-        hjonkState = HjonkState.NotHjonked;
-
-        FindTarget(maxItterations);
-    }
-
-    IEnumerator NextPos()
-    {
-        waitingAtTarget = true;
-
-        foundValidTarget = false;
-
-        float timeToWait = Random.Range(minWaitTime, maxWaitTime);
-        print("Time till next move: "+ timeToWait + " for Unit: " + unitName);
-
-        yield return new WaitForSeconds(timeToWait);
-
-        FindTarget(maxItterations);
-
-        arrivedAtTarget = false;
-
-        waitingAtTarget = false;
-    }
-
-    public void FindTarget(int maxItterations)
-    {
-        if(target == null)
-        {
-            target = possibleTargets[Random.Range(0, possibleTargets.Length)];
-        }
-
-        int itterations = 0;
-
-        if (hjonkState == HjonkState.NotHjonked)
-        {
-            if (maxItterations > itterations)
-            {
-                for (int i = 0; i < bobs.Count; i++)
-                {
-                    if (bobs[i].target == target)
-                    {
-                        target = possibleTargets[Random.Range(0, possibleTargets.Length)];
-
-                        foundValidTarget = false;
-                    }
-                }
-            }else if (maxItterations == itterations && !foundValidTarget)
-            {
-                target = possibleTargets[Random.Range(0, possibleTargets.Length)];
-
-                foundValidTarget = true;
-            }
-        }else if(hjonkState == HjonkState.Hjonked)
-        {
-            if (maxItterations > itterations)
-            {
-                for (int i = 0; i < bobs.Count; i++)
-                {
-                    if (bobs[i].target == target)
-                    {
-                        target = hjonkTargets[Random.Range(0, hjonkTargets.Length)];
-
-                        foundValidTarget = false;
-                    }
-                }
-            }else if (maxItterations == itterations && !foundValidTarget)
-            {
-                target = hjonkTargets[Random.Range(0, hjonkTargets.Length)];
-
-                foundValidTarget = true;
-            }
-        }
-    }
-
     public void OnDrawGizmos()
     {
-        if (displayTurnGizmos)
+        if (path != null)
         {
-            if (path != null)
-            {
-                path.DrawWithGizmos();
-            }
+            path.DrawWithGizmos();
         }
     }
 }

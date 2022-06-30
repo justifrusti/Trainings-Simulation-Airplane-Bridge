@@ -31,6 +31,8 @@ public class ProcedureManager : MonoBehaviour
     [Header("Moving Components")]
     public bool test;
 
+    [Header("Debug")]
+    [Range(1.0f, 100f)]public float gameSpeed;
 
     void Start()
     {
@@ -39,6 +41,8 @@ public class ProcedureManager : MonoBehaviour
 
     void Update()
     {
+        Time.timeScale = gameSpeed;
+
         switch (procedureState)
         {
             case ProcedureState.ReleasingBridge:
