@@ -36,14 +36,14 @@ public class BridgeController : MonoBehaviour
     public GameObject tunnelExtended;
     public GameObject tunnelBase;
 
-
+<<<<<<< Updated upstream
     public enum ActiveState { Disabled, Enabled};
     public ActiveState activeState;
-
+=======
     [Header("player")]
     public Transform playerPOS;
     public GameObject player;
-
+>>>>>>> Stashed changes
 
     public enum BridgeState {Forward, Backward, Left, Right, Stopped}
     public BridgeState bridgeState;

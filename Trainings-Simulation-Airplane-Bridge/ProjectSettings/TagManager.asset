@@ -4,31 +4,33 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - projectile
-  - FxTemporaire
   - ForwardButton
-  - MoveBridgeDown
-  - HuifDownButton
-  - LampTest
-  - MoveBridgeUp
-  - Claxon
-  - HandButton
-  - AutoTrimButton
-  - HuifUpButton
   - TurnHeadLeft
-  - RolluikDownButton
   - TurnHeadRight
+  - MoveBridgeUp
+  - MoveBridgeDown
+  - PlayerHand
+  - HandButton
+  - LampTest
+  - Claxon
   - RolluikUpButton
+  - RolluikDownButton
+  - HuifUpButton
+  - HuifDownButton
+  - AutoTrimButton
+  - Bob
   - RolLuikTriggerTop
   - RolLuikTriggerBottom
-  - PlayerHand
-  - Forward
-  - Death
-  - Thumbs Up
   - PunishedBob
+  - Thumbs Up
+<<<<<<< Updated upstream
+  - Death
+=======
+  - Forward
   - Backward
   - Left
   - Right
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -36,8 +38,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Unwalkable
+  - Walkable
   - 
   - 
   - 

@@ -29,6 +29,7 @@ public class JoystickController : MonoBehaviour
 
     void Update()
     {
+        
         lockedRotation();
         if (joystickGrabbed == false)
         {
