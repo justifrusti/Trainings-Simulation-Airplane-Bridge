@@ -9,7 +9,7 @@ public class BridgeController : MonoBehaviour
     [Header("movementValues")]
     public float moveSpeed;
     public float moveSpeedRolLuik;
-    public Vector3 rotationPlus, rotationMin, rotationSpeed;
+    public Vector3 rotationPlus, rotationSpeed;
     public float rotationWheelSpeed;
 
     [Header("movementBool")]
@@ -23,22 +23,27 @@ public class BridgeController : MonoBehaviour
     public Transform oneNTTunrPivot;
     public Transform twoNdBridgePartPivot;
     public Transform threeNdBridgePart;
-    public Transform fourNdBridgePart;
 
 
     [Header("Wheels")]
     public GameObject wheels;
     public Transform wheelTransform;
     public GameObject WheelElevator;
+    public Vector3 WheelElevatorSpeed;
 
-    [Header("rolLuikStuff")]
+    [Header("Other")]
     public Transform rolLuikMovePoint;
-
     public GameObject tunnelExtended;
     public GameObject tunnelBase;
 
+<<<<<<< Updated upstream
     public enum ActiveState { Disabled, Enabled};
     public ActiveState activeState;
+=======
+    [Header("player")]
+    public Transform playerPOS;
+    public GameObject player;
+>>>>>>> Stashed changes
 
     public enum BridgeState {Forward, Backward, Left, Right, Stopped}
     public BridgeState bridgeState;
@@ -101,22 +106,26 @@ public class BridgeController : MonoBehaviour
 
         if(turnHeadRight == true)
         {
-            bridgeHead.transform.Rotate(0, 0.05f, 0);
+            bridgeHead.transform.Rotate(0, 0.03f, 0);
         }
 
         if(turnHeadLeft == true)
         {
-            bridgeHead.transform.Rotate(0, -0.05f, 0);
+            bridgeHead.transform.Rotate(0, -0.03f, 0);
         }
 
         if (bridgeUp == true)
         {
             turnPointBase.transform.Rotate(0.001f, 0, 0);
+            threeNdBridgePart.transform.Rotate(-0.001f, 0, 0);
+            WheelElevator.transform.position += -WheelElevatorSpeed;
         }
 
         if (bridgeDown == true)
         {
             turnPointBase.transform.Rotate(-0.001f, 0, 0);
+            threeNdBridgePart.transform.Rotate(0.001f, 0, 0);
+            WheelElevator.transform.position += WheelElevatorSpeed;
         }
         
         if(rolLuikUp == true)
@@ -128,6 +137,7 @@ public class BridgeController : MonoBehaviour
         {
             rolLuikMovePoint.position += -Vector3.up * moveSpeedRolLuik * Time.deltaTime;
         }
+        player.transform.position = playerPOS.position;
     }
    
 }

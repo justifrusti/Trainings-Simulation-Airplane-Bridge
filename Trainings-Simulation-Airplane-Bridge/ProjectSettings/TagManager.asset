@@ -23,7 +23,14 @@ TagManager:
   - RolLuikTriggerBottom
   - PunishedBob
   - Thumbs Up
+<<<<<<< Updated upstream
   - Death
+=======
+  - Forward
+  - Backward
+  - Left
+  - Right
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

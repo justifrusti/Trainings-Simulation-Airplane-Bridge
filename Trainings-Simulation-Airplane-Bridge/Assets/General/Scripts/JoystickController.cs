@@ -10,11 +10,6 @@ public class JoystickController : MonoBehaviour
 
     public Transform topOfJoystick;
 
-    [SerializeField]
-    private float forwardBackwardTilt = 0;
-    [SerializeField]
-    private float sideToSideTilt = 0;
-
     private float rot = 0f;
     private float rotY, rotX;
     public float minRotY, maxRotY, minRotX, maxRotX;
@@ -34,31 +29,12 @@ public class JoystickController : MonoBehaviour
 
     void Update()
     {
-        forwardBackwardTilt = topOfJoystick.rotation.eulerAngles.x;
-        if (forwardBackwardTilt < 355 && forwardBackwardTilt > 290)
-        {
-            forwardBackwardTilt = Mathf.Abs(forwardBackwardTilt - 360);
-            bridgeController.bridgeState = BridgeController.BridgeState.Backward;
-        }
-        else if (forwardBackwardTilt > 5 && forwardBackwardTilt < 74)
-        {
-            bridgeController.bridgeState = BridgeController.BridgeState.Forward;
-        }
-
-        sideToSideTilt = topOfJoystick.rotation.eulerAngles.z;
-        if (forwardBackwardTilt < 355 && forwardBackwardTilt > 290)
-        {
-            sideToSideTilt = Mathf.Abs(sideToSideTilt - 360);
-            bridgeController.bridgeState = BridgeController.BridgeState.Right;
-        }
-        else if (sideToSideTilt > 5 && sideToSideTilt < 74)
-        {
-            bridgeController.bridgeState = BridgeController.BridgeState.Left;
-        }
+        
         lockedRotation();
         if (joystickGrabbed == false)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, baseRotation, Time.time * rotationResetSpeed);
+            bridgeController.bridgeState = BridgeController.BridgeState.Stopped;
         }
     }
 
@@ -71,6 +47,26 @@ public class JoystickController : MonoBehaviour
                 transform.LookAt(other.transform.position, transform.up);
                 joystickGrabbed = true;
             }
+        }
+
+        if(other.tag == "Forward")
+        {
+            bridgeController.bridgeState = BridgeController.BridgeState.Forward;
+        }
+
+        if (other.tag == "Backward")
+        {
+            bridgeController.bridgeState = BridgeController.BridgeState.Backward;
+        }
+
+        if (other.tag == "Left")
+        {
+            bridgeController.bridgeState = BridgeController.BridgeState.Left;
+        }
+
+        if (other.tag == "Right")
+        {
+            bridgeController.bridgeState = BridgeController.BridgeState.Right;
         }
     }
     private void OnTriggerExit(Collider other)

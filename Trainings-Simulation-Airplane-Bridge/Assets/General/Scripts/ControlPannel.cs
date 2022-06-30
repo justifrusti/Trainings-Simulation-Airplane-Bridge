@@ -27,7 +27,7 @@ public class ControlPannel : MonoBehaviour
             bridgeController.turnHeadLeft = true;
         }
 
-        if (other.tag == "TunrHeadRight")
+        if (other.tag == "TurnHeadRight")
         {
             bridgeController.turnHeadRight = true;              
         }
@@ -81,5 +81,7 @@ public class ControlPannel : MonoBehaviour
         bridgeController.turnHeadLeft = false;
         bridgeController.bridgeUp = false;
         bridgeController.bridgeDown = false;
+        bridgeController.rolLuikUp = false;
+        bridgeController.rolLuikDown = false;
     }
 }
