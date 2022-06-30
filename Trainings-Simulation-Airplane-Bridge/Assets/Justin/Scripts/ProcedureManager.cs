@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ProcedureManager : MonoBehaviour
 {
+    public string sceneToLoad;
+
     [Header("Honk Components")]
     public AudioSource hjonk;
 
@@ -13,7 +16,8 @@ public class ProcedureManager : MonoBehaviour
     public ProcedureState procedureState;
     public StartupState startupState;
 
-    //Header For Releasing Components;
+    [Header("Releasing Components")]
+    public bool isReleased;
 
     [Header("Startup Components")]
     public bool testedLight = false;
@@ -29,7 +33,10 @@ public class ProcedureManager : MonoBehaviour
     public bool shuttersOpened = false;
 
     [Header("Moving Components")]
-    public bool test;
+    public bool doneMoving;
+
+    [Header("Positioning Bridge")]
+    public bool finished;
 
     [Header("Debug")]
     [Range(1.0f, 100f)]public float gameSpeed;
@@ -37,6 +44,8 @@ public class ProcedureManager : MonoBehaviour
     void Start()
     {
         handActivateTimer = HandActivateTimer();
+
+        procedureState = ProcedureState.ReleasingBridge;
     }
 
     void Update()
@@ -46,9 +55,13 @@ public class ProcedureManager : MonoBehaviour
         switch (procedureState)
         {
             case ProcedureState.ReleasingBridge:
-                //Insert Visual Elements Code here;
-
-                procedureState = ProcedureState.StartUp;
+                if(!isReleased)
+                {
+                    Debug.Log("Bridge is not released");
+                }else if(isReleased)
+                {
+                    procedureState = ProcedureState.StartUp;
+                }
                 break;
 
             case ProcedureState.StartUp:
@@ -90,15 +103,34 @@ public class ProcedureManager : MonoBehaviour
                 break;
 
             case ProcedureState.OpenShutters:
+                if (!shuttersOpened)
+                {
+                    Debug.Log("Shutters are not opened");
+                }
+                else if (shuttersOpened)
+                {
+                    procedureState = ProcedureState.Moving;
+                }
                 break;
 
             case ProcedureState.Moving:
-                break;
-
-            case ProcedureState.WheelPosition:
+                if(!doneMoving)
+                {
+                    Debug.Log("Movement still in progress");
+                }else if(doneMoving)
+                {
+                    procedureState = ProcedureState.PositioningBridge;
+                }
                 break;
 
             case ProcedureState.PositioningBridge:
+                if(!finished)
+                {
+                    finished = true;
+                }else if(finished)
+                {
+                    StartCoroutine(BackToMain());
+                }
                 break;
         }
     }
@@ -128,5 +160,12 @@ public class ProcedureManager : MonoBehaviour
         handTimerActive = false;
 
         startupState = StartupState.TestingLights;
+    }
+
+    public IEnumerator BackToMain()
+    {
+        yield return new WaitForSeconds(10);
+
+        SceneManager.LoadScene(sceneToLoad);
     }
 }

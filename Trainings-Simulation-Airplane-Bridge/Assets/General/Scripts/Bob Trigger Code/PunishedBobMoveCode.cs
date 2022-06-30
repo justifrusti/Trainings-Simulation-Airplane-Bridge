@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PunishedBobMoveCode : MonoBehaviour
 {
+    public ProcedureManager manager;
+
     public bool hasAlreadyEnteredTrigger;
     public bool playerHasThumbUp;
 
@@ -22,6 +24,8 @@ public class PunishedBobMoveCode : MonoBehaviour
         {
             anim.SetBool("Tumbs UP", false);
             anim.SetBool("Walking", true);
+
+            manager.isReleased = true;
         }
     }
 

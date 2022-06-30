@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BridgeController : MonoBehaviour
 {
+    public ProcedureManager manager;
+
     [Header("movementValues")]
     public float moveSpeed;
     public float moveSpeedRolLuik;
@@ -35,6 +37,9 @@ public class BridgeController : MonoBehaviour
     public GameObject tunnelExtended;
     public GameObject tunnelBase;
 
+    public enum ActiveState { Disabled, Enabled};
+    public ActiveState activeState;
+
     public enum BridgeState {Forward, Backward, Left, Right, Stopped}
     public BridgeState bridgeState;
     void Start()
@@ -44,41 +49,53 @@ public class BridgeController : MonoBehaviour
 
     void Update()
     {
-        switch (bridgeState)
+        switch(activeState)
         {
-            case BridgeState.Forward:
-                if (wheelTransform.localEulerAngles.y >= 30 && wheelTransform.localEulerAngles.y <= 90)
+            case ActiveState.Disabled:
+                if(manager.procedureState == ProcedureManager.ProcedureState.Moving)
                 {
-                    rotationPlus = rotationSpeed * Time.deltaTime;
-                    twoNdBridgePartPivot.transform.Rotate(rotationPlus);
-                    turnPointBase.transform.Rotate(rotationPlus);
-                }
-                else
-                {
-                    tunnelExtended.transform.localPosition += wheelTransform.forward * Time.deltaTime * moveSpeed;
-                    twoNdBridgePartPivot.LookAt(oneNTTunrPivot);
+                    activeState = ActiveState.Enabled;
                 }
                 break;
 
-            case BridgeState.Backward:
-                if (wheelTransform.localEulerAngles.y >= -30 && wheelTransform.localEulerAngles.y <= -90)
+            case ActiveState.Enabled:
+                switch (bridgeState)
                 {
-                    rotationPlus = rotationSpeed * Time.deltaTime;
-                    turnPointBase.transform.Rotate(rotationPlus);
-                    tunnelExtended.transform.localPosition += -wheelTransform.forward * Time.deltaTime * moveSpeed;
-                }
-                else if(wheelTransform.localEulerAngles.y >= -10 && wheelTransform.localEulerAngles.y <= 10)
-                {
-                    tunnelExtended.transform.localPosition += -wheelTransform.forward * Time.deltaTime * moveSpeed;
-                }
-                break;
+                    case BridgeState.Forward:
+                        if (wheelTransform.localEulerAngles.y >= 30 && wheelTransform.localEulerAngles.y <= 90)
+                        {
+                            rotationPlus = rotationSpeed * Time.deltaTime;
+                            twoNdBridgePartPivot.transform.Rotate(rotationPlus);
+                            turnPointBase.transform.Rotate(rotationPlus);
+                        }
+                        else
+                        {
+                            tunnelExtended.transform.localPosition += wheelTransform.forward * Time.deltaTime * moveSpeed;
+                            twoNdBridgePartPivot.LookAt(oneNTTunrPivot);
+                        }
+                        break;
 
-            case BridgeState.Left:
-                wheels.transform.Rotate(0, -rotationWheelSpeed, 0);
-                break;
+                    case BridgeState.Backward:
+                        if (wheelTransform.localEulerAngles.y >= -30 && wheelTransform.localEulerAngles.y <= -90)
+                        {
+                            rotationPlus = rotationSpeed * Time.deltaTime;
+                            turnPointBase.transform.Rotate(rotationPlus);
+                            tunnelExtended.transform.localPosition += -wheelTransform.forward * Time.deltaTime * moveSpeed;
+                        }
+                        else if (wheelTransform.localEulerAngles.y >= -10 && wheelTransform.localEulerAngles.y <= 10)
+                        {
+                            tunnelExtended.transform.localPosition += -wheelTransform.forward * Time.deltaTime * moveSpeed;
+                        }
+                        break;
 
-            case BridgeState.Right:
-                wheels.transform.Rotate(0, rotationWheelSpeed, 0);
+                    case BridgeState.Left:
+                        wheels.transform.Rotate(0, -rotationWheelSpeed, 0);
+                        break;
+
+                    case BridgeState.Right:
+                        wheels.transform.Rotate(0, rotationWheelSpeed, 0);
+                        break;
+                }
                 break;
         }
 
